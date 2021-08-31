@@ -1,0 +1,29 @@
+body {
+  font-family: var(--sl-font-sans);
+  font-size: var(--sl-font-size-medium);
+  font-weight: var(--sl-font-weight-normal);
+  letter-spacing: var(--sl-letter-spacing-normal);
+  background-color: rgb(var(--sl-color-neutral-1000));
+  color: rgb(var(--sl-color-neutral-800));
+  line-height: var(--sl-line-height-normal);
+}
+.content {
+  padding: 15px 60px;
+}
+.content > h1 {
+  margin: 0;
+}
+.sl-theme-light a {
+  color: inherit;
+  text-decoration: none;
+}
+.sl-theme-light a:hover {
+  color: rgb(var(--sl-color-primary-700));
+}
+.sl-theme-dark a {
+  color: inherit;
+  text-decoration: none;
+}
+.sl-theme-dark a:hover {
+  color: rgb(var(--sl-color-primary-500));
+}
