@@ -13,7 +13,7 @@ export default {
   output: {
     sourcemap: !production,
     format: 'esm',
-    dir: 'public/dist',
+    dir: production ? 'docs/dist' : 'public/dist',
     chunkFileNames: '[name].js',
   },
   plugins: [

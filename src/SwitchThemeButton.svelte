@@ -6,11 +6,11 @@
   let className = '';
   let theme = "light";
 
-  document.documentElement.classList.add("sl-theme-light");
+  // document.documentElement.classList.add("sl-theme-light");
 
   function switchTheme() {
     theme = ( theme === "light" ) ? "dark" : "light";
-    document.documentElement.classList.toggle("sl-theme-light");
+    // document.documentElement.classList.toggle("sl-theme-light");
     document.documentElement.classList.toggle("sl-theme-dark");
   }
 </script>
