@@ -12,6 +12,7 @@
   import SidebarContent from "./SidebarContent.svelte";
   import SwitchThemeButton from "./SwitchThemeButton.svelte";
 
+  // setBasePath('/svelte-shoelace-example/dist/shoelace');
   setBasePath('/dist/shoelace');
 
   let showSidebar = true;
