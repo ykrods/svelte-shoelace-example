@@ -8,12 +8,14 @@ import { terser } from 'rollup-plugin-terser';
 
 const production = !process.env.ROLLUP_WATCH;
 
+const dest = production ? 'docs' : 'public/svelte-shoelace-example';
+
 export default {
   input: 'src/main.js',
   output: {
     sourcemap: !production,
     format: 'esm',
-    dir: production ? 'docs/dist' : 'public/dist',
+    dir: dest,
     chunkFileNames: '[name].js',
   },
   plugins: [
@@ -29,13 +31,17 @@ export default {
       targets: [
         {
           src: 'node_modules/@shoelace-style/shoelace/dist/assets',
-          dest: 'public/dist/shoelace/assets'
+          dest: `${dest}/shoelace/assets`,
+          filter(src) {
+            const re = /.+\/(sun|moon|list|check2-circle)\.svg$/;
+            return re.test(src);
+          }
+        },
+        {
+          src: 'src/static',
+          dest,
         },
       ],
-      filter(src) {
-        const re = /.+\/(sun|moon|list|check2-circle)\.svg$/;
-        return re.test(src);
-      }
     }),
     resolve({
       browser: true,
@@ -50,19 +56,18 @@ export default {
   }
 };
 
-// plugin としてサーバを立ち上げるもの
 function serve() {
-	let started = false;
+  let started = false;
 
-	return {
-		writeBundle() {
-			if (!started) {
-				started = true;
-				require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
-					stdio: ['ignore', 'inherit', 'inherit'],
-					shell: true
-				});
-			}
-		}
-	};
+  return {
+    writeBundle() {
+      if (!started) {
+        started = true;
+        require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
+          stdio: ['ignore', 'inherit', 'inherit'],
+          shell: true
+        });
+      }
+    }
+  };
 }

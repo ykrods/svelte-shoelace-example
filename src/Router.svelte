@@ -4,10 +4,10 @@
   import NotFound from "./pages/NotFound.svelte";
 
   const routes = {
-    "#Home": () => { return import("./pages/Home.svelte"); },
-    "#Form-basic": () => { return import("./pages/FormBasic.svelte"); },
-    "#Form-reactive": () => { return import("./pages/FormReactive.svelte"); },
-    "#Dropdown": () => { return import("./pages/Dropdown.svelte"); },
+    "#Home": () => import("./pages/Home.svelte"),
+    "#Form-basic": () => import("./pages/FormBasic.svelte"),
+    "#Form-reactive": () => import("./pages/FormReactive.svelte"),
+    "#Dropdown": () => import("./pages/Dropdown.svelte"),
   }
 
   let current;
