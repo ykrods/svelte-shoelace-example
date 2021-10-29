@@ -1,8 +1,6 @@
 <script>
   import { fly } from "svelte/transition";
 
-  import "@shoelace-style/shoelace/dist/themes/light.css";
-  import "@shoelace-style/shoelace/dist/themes/dark.css";
   import "@shoelace-style/shoelace/dist/components/icon-button/icon-button";
   import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
 
@@ -37,18 +35,6 @@
   </section>
 </main>
 <style>
-  .toggleSidebarButton {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    z-index: 30;
-  }
-  :global(.switchThemeButton) {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 30;
-  }
   .sidebar-wrap {
     position: fixed;
     top: 0;
@@ -57,7 +43,7 @@
     width: 250px;
     z-index: 20;
     border-right: 1px solid rgb(var(--sl-color-neutral-200));
-    background-color: rgb(var(--sl-color-neutral-1000));
+    background-color: rgb(var(--sl-color-neutral-0));
   }
   .content-wrap {
     position: absolute;

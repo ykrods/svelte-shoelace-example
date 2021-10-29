@@ -6,9 +6,6 @@
     <li><a href="#Dropdown">Dropdown</a></li>
   </ul>
 </div>
-<svelte:head>
-  <title>Dropdown</title>
-</svelte:head>
 <style>
   ul {
     padding: 0;

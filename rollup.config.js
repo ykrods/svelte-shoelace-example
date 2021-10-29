@@ -30,6 +30,10 @@ export default {
     copy({
       targets: [
         {
+          src: 'src/static',
+          dest,
+        },
+        {
           src: 'node_modules/@shoelace-style/shoelace/dist/assets',
           dest: `${dest}/shoelace/assets`,
           filter(src) {
@@ -38,9 +42,9 @@ export default {
           }
         },
         {
-          src: 'src/static',
-          dest,
-        },
+          src: "node_modules/@shoelace-style/shoelace/dist/themes",
+          dest: `${dest}/shoelace/themes`,
+        }
       ],
     }),
     resolve({
