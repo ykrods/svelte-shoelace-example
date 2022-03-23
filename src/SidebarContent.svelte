@@ -4,6 +4,7 @@
     <li><a href="#Form-basic">Form (basic)</a></li>
     <li><a href="#Form-reactive">Form (reactive)</a></li>
     <li><a href="#Dropdown">Dropdown</a></li>
+    <li><a href="#Dialog">Dialog</a></li>
   </ul>
 </div>
 <style>
