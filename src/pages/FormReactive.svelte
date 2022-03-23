@@ -1,5 +1,4 @@
 <script>
-  import "@shoelace-style/shoelace/dist/components/form/form";
   import "@shoelace-style/shoelace/dist/components/input/input";
   import "@shoelace-style/shoelace/dist/components/select/select";
   import "@shoelace-style/shoelace/dist/components/menu-item/menu-item";
@@ -9,19 +8,13 @@
   let confirmation = '';
 
   $: upper = confirmation.toUpperCase();
-
-  function onSubmit(evt) {
-    alert('confirmed!');
-  }
-
 </script>
 <svelte:head>
   <title>Form - reactive</title>
 </svelte:head>
 <div class="content">
   <h1>Form - reactive</h1>
-  <p>
-    <sl-form on:sl-submit={onSubmit}>
+  <form on:submit|preventDefault={ () => { alert('confirmed!'); }}>
       <sl-input
         class:invalid={confirmation !== "shoelace"}
         name="Confirmation"
@@ -41,20 +34,22 @@
         disabled
       ></sl-input>
       <br>
-      <sl-button type="primary" disabled={confirmation !== "shoelace"} submit>Submit</sl-button>
-    </sl-form>
-  </p>
+      <sl-button
+        type="submit"
+        variant="primary"
+        disabled={confirmation !== "shoelace"}
+      >Submit</sl-button>
+  </form>
 </div>
 <style>
   .invalid:not([disabled])::part(label),
   .invalid:not([disabled])::part(help-text) {
-    color: rgb(var(--sl-color-danger-600));
+    color: var(--sl-color-danger-600);
   }
   .invalid:not([disabled])::part(base) {
-    border-color: rgb(var(--sl-color-danger-500));
+    border-color: var(--sl-color-danger-600);
   }
-
-  .invalid {
-    --focus-ring: 0 0 0 var(--sl-focus-ring-width) rgb(var(--sl-color-danger-500) / var(--sl-focus-ring-alpha));
+  .invalid:focus-within::part(base) {
+    box-shadow: 0 0 0 var(--sl-focus-ring-width) var(--sl-color-danger-600);
   }
 </style>

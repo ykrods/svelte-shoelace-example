@@ -37,7 +37,7 @@ export default {
           src: 'node_modules/@shoelace-style/shoelace/dist/assets',
           dest: `${dest}/shoelace/assets`,
           filter(src) {
-            const re = /.+\/(sun|moon|list|check2-circle)\.svg$/;
+            const re = /.+\/(sun|moon|list|check2-circle|check-lg|chevron-right)\.svg$/;
             return re.test(src);
           }
         },
@@ -56,6 +56,8 @@ export default {
     production && terser(),
   ],
   watch: {
+    include: "src/**",
+    chokidar: false,
     clearScreen: false
   }
 };

@@ -4,8 +4,8 @@ body {
   font-size: var(--sl-font-size-medium);
   font-weight: var(--sl-font-weight-normal);
   letter-spacing: var(--sl-letter-spacing-normal);
-  background-color: rgb(var(--sl-color-neutral-0));
-  color: rgb(var(--sl-color-neutral-1000));
+  background-color: var(--sl-color-neutral-0);
+  color: var(--sl-color-neutral-1000);
   line-height: var(--sl-line-height-normal);
 }
 .content {
@@ -35,7 +35,7 @@ body {
   text-decoration: none;
 }
 .sl-theme-light a:hover {
-  color: rgb(var(--sl-color-primary-700));
+  color: var(--sl-color-primary-700);
   text-decoration: none;
 }
 .sl-theme-dark a {
@@ -43,5 +43,5 @@ body {
   text-decoration: none;
 }
 .sl-theme-dark a:hover {
-  color: rgb(var(--sl-color-primary-500));
+  color: var(--sl-color-primary-500);
 }
