@@ -1,1 +1,1 @@
-export{L as default}from"./main2.js";
+export{N as default}from"./main2.js";
