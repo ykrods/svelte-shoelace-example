@@ -42,8 +42,8 @@
     left: 0;
     width: 250px;
     z-index: 20;
-    border-right: 1px solid rgb(var(--sl-color-neutral-200));
-    background-color: rgb(var(--sl-color-neutral-0));
+    border-right: 1px solid var(--sl-color-neutral-200);
+    background-color: var(--sl-color-neutral-100);
   }
   .content-wrap {
     position: absolute;
