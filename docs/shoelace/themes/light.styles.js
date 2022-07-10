@@ -4,6 +4,8 @@ export default css`
   :root,
   :host,
   .sl-theme-light {
+    color-scheme: light;
+
     --sl-color-gray-50: hsl(0 0% 97.5%);
     --sl-color-gray-100: hsl(240 4.8% 95.9%);
     --sl-color-gray-200: hsl(240 5.9% 90%);
@@ -348,10 +350,12 @@ export default css`
     --sl-line-height-loose: 2.2;
     --sl-line-height-looser: 2.6;
 
-    --sl-focus-ring-alpha: 40%;
+    --sl-focus-ring-color: var(--sl-color-primary-600);
+    --sl-focus-ring-style: solid;
     --sl-focus-ring-width: 3px;
-    --sl-focus-ring: 0 0 0 var(--sl-focus-ring-width)
-      hsl(198.6 88.7% 48.4% / var(--sl-focus-ring-alpha));
+    --sl-focus-ring: var(--sl-focus-ring-style) var(--sl-focus-ring-width)
+      var(--sl-focus-ring-color);
+    --sl-focus-ring-offset: 1px;
 
     --sl-button-font-size-small: var(--sl-font-size-x-small);
     --sl-button-font-size-medium: var(--sl-font-size-small);
@@ -370,6 +374,8 @@ export default css`
     --sl-input-border-color-focus: var(--sl-color-primary-500);
     --sl-input-border-color-disabled: var(--sl-color-neutral-300);
     --sl-input-border-width: 1px;
+    --sl-input-required-content: "*";
+    --sl-input-required-content-offset: -2px;
 
     --sl-input-border-radius-small: var(--sl-border-radius-medium);
     --sl-input-border-radius-medium: var(--sl-border-radius-medium);
@@ -403,6 +409,9 @@ export default css`
     --sl-input-filled-color-hover: var(--sl-color-neutral-800);
     --sl-input-filled-color-focus: var(--sl-color-neutral-700);
     --sl-input-filled-color-disabled: var(--sl-color-neutral-800);
+
+    --sl-input-focus-ring-color: hsl(198.6 88.7% 48.4% / 40%);
+    --sl-input-focus-ring-offset: 0;
 
     --sl-input-label-font-size-small: var(--sl-font-size-small);
     --sl-input-label-font-size-medium: var(--sl-font-size-medium);
@@ -448,7 +457,7 @@ export default css`
   .sl-toast-stack {
     position: fixed;
     top: 0;
-    right: 0;
+    inset-inline-end: 0;
     z-index: var(--sl-z-index-toast);
     width: 28rem;
     max-width: 100%;
