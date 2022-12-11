@@ -1,4 +1,4 @@
-import{r as e,f as t,_ as a,g as s,h as r,w as o,j as i,k as l,l as n,m as c,$ as h,o as d,S as u,i as p,s as m,a as b,e as f,t as v,p as g,b as y,c as w,q as _,u as x,v as k,x as C,n as H,d as z,y as T}from"./main2.js";import"./chunk.GZXUTSX6.js";import{s as $,H as F,L as S,a as j,g as q,b as A}from"./chunk.YHAURCL4.js";import"./chunk.UG3PPFPN.js";var M=e`
+import{f as e,g as t,_ as a,h as s,j as r,w as o,k as i,l,y as n,o as c,S as h,i as d,s as u,a as p,e as m,t as b,m as g,b as v,c as f,p as y,q as w,r as _,u as x,n as k,d as C,v as H}from"./main2.js";import"./chunk.4IDZJHT6.js";import{s as z,H as $,L as T,w as D,a as j,g as q,b as F}from"./chunk.G5HV7L2U.js";import"./chunk.OCR5UKKD.js";var M=e`
   ${t}
 
   :host {
@@ -16,7 +16,6 @@ import{r as e,f as t,_ as a,g as s,h as r,w as o,j as i,k as l,l as n,m as c,$ a
     border: solid var(--sl-panel-border-width) var(--sl-panel-border-color);
     border-top-width: calc(var(--sl-panel-border-width) * 3);
     border-radius: var(--sl-border-radius-medium);
-    box-shadow: var(--box-shadow);
     font-family: var(--sl-font-sans);
     font-size: var(--sl-font-size-small);
     font-weight: var(--sl-font-weight-normal);
@@ -80,6 +79,7 @@ import{r as e,f as t,_ as a,g as s,h as r,w as o,j as i,k as l,l as n,m as c,$ a
 
   .alert__message {
     flex: 1 1 auto;
+    display: block;
     padding: var(--sl-spacing-large);
     overflow: hidden;
   }
@@ -88,36 +88,31 @@ import{r as e,f as t,_ as a,g as s,h as r,w as o,j as i,k as l,l as n,m as c,$ a
     flex: 0 0 auto;
     display: flex;
     align-items: center;
-    font-size: var(--sl-font-size-large);
+    font-size: var(--sl-font-size-medium);
     padding-inline-end: var(--sl-spacing-medium);
   }
-`,U=Object.assign(document.createElement("div"),{className:"sl-toast-stack"}),D=class extends l{constructor(){super(...arguments),this.hasSlotController=new F(this,"icon","suffix"),this.localize=new S(this),this.open=!1,this.closable=!1,this.variant="primary",this.duration=1/0}firstUpdated(){this.base.hidden=!this.open}async show(){if(!this.open)return this.open=!0,n(this,"sl-after-show")}async hide(){if(this.open)return this.open=!1,n(this,"sl-after-hide")}async toast(){return new Promise((e=>{null===U.parentElement&&document.body.append(U),U.appendChild(this),requestAnimationFrame((()=>{this.clientWidth,this.show()})),this.addEventListener("sl-after-hide",(()=>{U.removeChild(this),e(),null===U.querySelector("sl-alert")&&U.remove()}),{once:!0})}))}restartAutoHide(){clearTimeout(this.autoHideTimeout),this.open&&this.duration<1/0&&(this.autoHideTimeout=window.setTimeout((()=>this.hide()),this.duration))}handleCloseClick(){this.hide()}handleMouseMove(){this.restartAutoHide()}async handleOpenChange(){if(this.open){c(this,"sl-show"),this.duration<1/0&&this.restartAutoHide(),await j(this.base),this.base.hidden=!1;const{keyframes:e,options:t}=q(this,"alert.show",{dir:this.localize.dir()});await A(this.base,e,t),c(this,"sl-after-show")}else{c(this,"sl-hide"),clearTimeout(this.autoHideTimeout),await j(this.base);const{keyframes:e,options:t}=q(this,"alert.hide",{dir:this.localize.dir()});await A(this.base,e,t),this.base.hidden=!0,c(this,"sl-after-hide")}}handleDurationChange(){this.restartAutoHide()}render(){return h`
+`,S=Object.assign(document.createElement("div"),{className:"sl-toast-stack"}),A=class extends l{constructor(){super(...arguments),this.hasSlotController=new $(this,"icon","suffix"),this.localize=new T(this),this.open=!1,this.closable=!1,this.variant="primary",this.duration=1/0}firstUpdated(){this.base.hidden=!this.open}async show(){if(!this.open)return this.open=!0,D(this,"sl-after-show")}async hide(){if(this.open)return this.open=!1,D(this,"sl-after-hide")}async toast(){return new Promise((e=>{null===S.parentElement&&document.body.append(S),S.appendChild(this),requestAnimationFrame((()=>{this.clientWidth,this.show()})),this.addEventListener("sl-after-hide",(()=>{S.removeChild(this),e(),null===S.querySelector("sl-alert")&&S.remove()}),{once:!0})}))}restartAutoHide(){clearTimeout(this.autoHideTimeout),this.open&&this.duration<1/0&&(this.autoHideTimeout=window.setTimeout((()=>this.hide()),this.duration))}handleCloseClick(){this.hide()}handleMouseMove(){this.restartAutoHide()}async handleOpenChange(){if(this.open){this.emit("sl-show"),this.duration<1/0&&this.restartAutoHide(),await j(this.base),this.base.hidden=!1;const{keyframes:e,options:t}=q(this,"alert.show",{dir:this.localize.dir()});await F(this.base,e,t),this.emit("sl-after-show")}else{this.emit("sl-hide"),clearTimeout(this.autoHideTimeout),await j(this.base);const{keyframes:e,options:t}=q(this,"alert.hide",{dir:this.localize.dir()});await F(this.base,e,t),this.base.hidden=!0,this.emit("sl-after-hide")}}handleDurationChange(){this.restartAutoHide()}render(){return n`
       <div
         part="base"
-        class=${d({alert:!0,"alert--open":this.open,"alert--closable":this.closable,"alert--has-icon":this.hasSlotController.test("icon"),"alert--primary":"primary"===this.variant,"alert--success":"success"===this.variant,"alert--neutral":"neutral"===this.variant,"alert--warning":"warning"===this.variant,"alert--danger":"danger"===this.variant})}
+        class=${c({alert:!0,"alert--open":this.open,"alert--closable":this.closable,"alert--has-icon":this.hasSlotController.test("icon"),"alert--primary":"primary"===this.variant,"alert--success":"success"===this.variant,"alert--neutral":"neutral"===this.variant,"alert--warning":"warning"===this.variant,"alert--danger":"danger"===this.variant})}
         role="alert"
-        aria-live="assertive"
-        aria-atomic="true"
         aria-hidden=${this.open?"false":"true"}
         @mousemove=${this.handleMouseMove}
       >
-        <span part="icon" class="alert__icon">
-          <slot name="icon"></slot>
-        </span>
+        <slot name="icon" part="icon" class="alert__icon"></slot>
 
-        <span part="message" class="alert__message">
-          <slot></slot>
-        </span>
+        <slot part="message" class="alert__message" aria-live="polite"></slot>
 
-        ${this.closable?h`
+        ${this.closable?n`
               <sl-icon-button
                 part="close-button"
                 exportparts="base:close-button__base"
                 class="alert__close-button"
-                name="x"
+                name="x-lg"
                 library="system"
+                label=${this.localize.term("close")}
                 @click=${this.handleCloseClick}
               ></sl-icon-button>
             `:""}
       </div>
-    `}};function L(e){let t,a,s,r,o,i,l,n,c,h,d,u,p;return{c(){t=b(),a=f("div"),s=f("h1"),s.textContent="Form - basic",r=b(),o=f("form"),o.innerHTML='<sl-input name="name" type="text" label="Name" required="" maxlength="10" help-text="Input your name, Maximum length: 10 characters."></sl-input> \n    <br/> \n    <sl-select name="favorite" label="Select your favorite" clearable="" required=""><sl-menu-item value="birds">Birds</sl-menu-item> \n      <sl-menu-item value="cats">Cats</sl-menu-item> \n      <sl-menu-item value="dogs">Dogs</sl-menu-item></sl-select> \n    <br/> \n    <sl-checkbox name="agree" value="yes" required="">I totally agree</sl-checkbox> \n    <br/><br/> \n    <sl-button type="submit" variant="primary">Submit</sl-button>',i=b(),l=f("sl-alert"),n=f("sl-icon"),c=b(),h=f("pre"),d=v(e[1]),document.title="Form - basic",g(n,"slot","icon"),g(n,"name","check2-circle"),g(l,"type","success"),g(l,"duration","3000"),g(l,"closable",""),y(a,"class","content")},m(m,b){w(m,t,b),w(m,a,b),_(a,s),_(a,r),_(a,o),_(a,i),_(a,l),_(l,n),_(l,c),_(l,h),_(h,d),e[3](l),u||(p=x(o,"submit",k(e[2])),u=!0)},p(e,[t]){2&t&&C(d,e[1])},i:H,o:H,d(s){s&&z(t),s&&z(a),e[3](null),u=!1,p()}}}function N(e,t,a){let s,r="";return[s,r,function(e){console.log(e);const t=new FormData(e.target);a(1,r="");for(const[e,s]of t)a(1,r+=`${e}: ${s}\n`);s.toast()},function(e){T[e?"unshift":"push"]((()=>{s=e,a(0,s)}))}]}D.styles=M,a([s('[part="base"]')],D.prototype,"base",2),a([r({type:Boolean,reflect:!0})],D.prototype,"open",2),a([r({type:Boolean,reflect:!0})],D.prototype,"closable",2),a([r({reflect:!0})],D.prototype,"variant",2),a([r({type:Number})],D.prototype,"duration",2),a([o("open",{waitUntilFirstUpdate:!0})],D.prototype,"handleOpenChange",1),a([o("duration")],D.prototype,"handleDurationChange",1),D=a([i("sl-alert")],D),$("alert.show",{keyframes:[{opacity:0,transform:"scale(0.8)"},{opacity:1,transform:"scale(1)"}],options:{duration:250,easing:"ease"}}),$("alert.hide",{keyframes:[{opacity:1,transform:"scale(1)"},{opacity:0,transform:"scale(0.8)"}],options:{duration:250,easing:"ease"}});class P extends u{constructor(e){super(),p(this,e,N,L,m,{})}}export{P as default};
+    `}};function U(e){let t,a,s,r,o,i,l,n,c,h,d,u,H;return{c(){t=p(),a=m("div"),s=m("h1"),s.textContent="Form - basic",r=p(),o=m("form"),o.innerHTML='<sl-input name="name" type="text" label="Name" required="" maxlength="10" help-text="Input your name, Maximum length: 10 characters."></sl-input> \n    <br/> \n    <sl-select name="favorite" label="Select your favorite" clearable="" required=""><sl-menu-item value="birds">Birds</sl-menu-item> \n      <sl-menu-item value="cats">Cats</sl-menu-item> \n      <sl-menu-item value="dogs">Dogs</sl-menu-item></sl-select> \n    <br/> \n    <sl-checkbox name="agree" value="yes" required="">I totally agree</sl-checkbox> \n    <br/><br/> \n    <sl-button type="submit" variant="primary">Submit</sl-button>',i=p(),l=m("sl-alert"),n=m("sl-icon"),c=p(),h=m("pre"),d=b(e[1]),document.title="Form - basic",g(n,"slot","icon"),g(n,"name","check2-circle"),g(l,"type","success"),g(l,"duration","3000"),g(l,"closable",""),v(a,"class","content")},m(p,m){f(p,t,m),f(p,a,m),y(a,s),y(a,r),y(a,o),y(a,i),y(a,l),y(l,n),y(l,c),y(l,h),y(h,d),e[3](l),u||(H=w(o,"submit",_(e[2])),u=!0)},p(e,[t]){2&t&&x(d,e[1])},i:k,o:k,d(s){s&&C(t),s&&C(a),e[3](null),u=!1,H()}}}function L(e,t,a){let s,r="";return[s,r,function(e){console.log(e);const t=new FormData(e.target);a(1,r="");for(const[e,s]of t)a(1,r+=`${e}: ${s}\n`);s.toast()},function(e){H[e?"unshift":"push"]((()=>{s=e,a(0,s)}))}]}A.styles=M,a([s('[part~="base"]')],A.prototype,"base",2),a([r({type:Boolean,reflect:!0})],A.prototype,"open",2),a([r({type:Boolean,reflect:!0})],A.prototype,"closable",2),a([r({reflect:!0})],A.prototype,"variant",2),a([r({type:Number})],A.prototype,"duration",2),a([o("open",{waitUntilFirstUpdate:!0})],A.prototype,"handleOpenChange",1),a([o("duration")],A.prototype,"handleDurationChange",1),A=a([i("sl-alert")],A),z("alert.show",{keyframes:[{opacity:0,scale:.8},{opacity:1,scale:1}],options:{duration:250,easing:"ease"}}),z("alert.hide",{keyframes:[{opacity:1,scale:1},{opacity:0,scale:.8}],options:{duration:250,easing:"ease"}});class O extends h{constructor(e){super(),d(this,e,L,U,u,{})}}export{O as default};

@@ -1,4 +1,4 @@
-import{r as e,f as t,_ as a,g as s,h as o,w as i,j as l,k as n,l as r,m as d,$ as c,o as h,G as p,S as u,i as f,s as g,Q as m,e as y,a as v,p as b,c as w,q as _,u as x,R as $,T as k,U as C,V as z,W as K,d as D,P as E,X as F,Y as L,y as U,Z as q,a0 as P,t as S,b as A,a1 as H,a2 as I,x as T,a3 as j}from"./main2.js";import{e as O,s as B,H as R,L as Y,l as G,u as Q,g as V,b as W,a as X}from"./chunk.YHAURCL4.js";var Z=[],J=e`
+import{f as e,g as t,_ as a,h as i,j as s,w as o,k as l,l as n,y as r,o as d,F as c,S as h,i as p,s as u,N as f,e as g,a as m,m as y,c as v,p as b,q as _,O as w,P as x,Q as k,R as $,T as C,d as D,M as L,U as K,V as z,v as E,W as F,X as O,t as U,b as q,Y as P,Z as S,u as H,$ as A}from"./main2.js";import{e as j,s as I,H as T,L as B,l as V,u as G,w as M,g as N,b as Q,a as R}from"./chunk.G5HV7L2U.js";var W=[],X=e`
   ${t}
 
   :host {
@@ -48,7 +48,6 @@ import{r as e,f as t,_ as a,g as s,h as o,w as i,j as l,k as n,l as r,m as d,$ a
   .dialog--open .dialog__panel {
     display: flex;
     opacity: 1;
-    transform: none;
   }
 
   .dialog__header {
@@ -65,16 +64,26 @@ import{r as e,f as t,_ as a,g as s,h as o,w as i,j as l,k as n,l as r,m as d,$ a
     margin: 0;
   }
 
-  .dialog__close {
+  .dialog__header-actions {
+    flex-shrink: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: end;
+    gap: var(--sl-spacing-2x-small);
+    padding: 0 var(--header-spacing);
+  }
+
+  .dialog__header-actions sl-icon-button,
+  .dialog__header-actions ::slotted(sl-icon-button) {
     flex: 0 0 auto;
     display: flex;
     align-items: center;
-    font-size: var(--sl-font-size-x-large);
-    padding: 0 var(--header-spacing);
+    font-size: var(--sl-font-size-medium);
   }
 
   .dialog__body {
     flex: 1 1 auto;
+    display: block;
     padding: var(--body-spacing);
     overflow: auto;
     -webkit-overflow-scrolling: touch;
@@ -102,11 +111,16 @@ import{r as e,f as t,_ as a,g as s,h as o,w as i,j as l,k as n,l as r,m as d,$ a
     left: 0;
     background-color: var(--sl-overlay-background-color);
   }
-`,M=class extends n{constructor(){super(...arguments),this.hasSlotController=new R(this,"footer"),this.localize=new Y(this),this.open=!1,this.label="",this.noHeader=!1}connectedCallback(){super.connectedCallback(),this.modal=new class{constructor(e){this.tabDirection="forward",this.element=e,this.handleFocusIn=this.handleFocusIn.bind(this),this.handleKeyDown=this.handleKeyDown.bind(this),this.handleKeyUp=this.handleKeyUp.bind(this)}activate(){Z.push(this.element),document.addEventListener("focusin",this.handleFocusIn),document.addEventListener("keydown",this.handleKeyDown),document.addEventListener("keyup",this.handleKeyUp)}deactivate(){Z=Z.filter((e=>e!==this.element)),document.removeEventListener("focusin",this.handleFocusIn),document.removeEventListener("keydown",this.handleKeyDown),document.removeEventListener("keyup",this.handleKeyUp)}isActive(){return Z[Z.length-1]===this.element}checkFocus(){if(this.isActive()&&!this.element.matches(":focus-within")){const{start:e,end:t}=O(this.element),a="forward"===this.tabDirection?e:t;"function"==typeof(null==a?void 0:a.focus)&&a.focus({preventScroll:!0})}}handleFocusIn(){this.checkFocus()}handleKeyDown(e){"Tab"===e.key&&e.shiftKey&&(this.tabDirection="backward"),requestAnimationFrame((()=>this.checkFocus()))}handleKeyUp(){this.tabDirection="forward"}}(this)}firstUpdated(){this.dialog.hidden=!this.open,this.open&&(this.modal.activate(),G(this))}disconnectedCallback(){super.disconnectedCallback(),Q(this)}async show(){if(!this.open)return this.open=!0,r(this,"sl-after-show")}async hide(){if(this.open)return this.open=!1,r(this,"sl-after-hide")}requestClose(e){if(d(this,"sl-request-close",{cancelable:!0,detail:{source:e}}).defaultPrevented){const e=V(this,"dialog.denyClose",{dir:this.localize.dir()});W(this.panel,e.keyframes,e.options)}else this.hide()}handleKeyDown(e){"Escape"===e.key&&(e.stopPropagation(),this.requestClose("keyboard"))}async handleOpenChange(){if(this.open){d(this,"sl-show"),this.originalTrigger=document.activeElement,this.modal.activate(),G(this);const e=this.querySelector("[autofocus]");e&&e.removeAttribute("autofocus"),await Promise.all([X(this.dialog),X(this.overlay)]),this.dialog.hidden=!1,requestAnimationFrame((()=>{d(this,"sl-initial-focus",{cancelable:!0}).defaultPrevented||(e?e.focus({preventScroll:!0}):this.panel.focus({preventScroll:!0})),e&&e.setAttribute("autofocus","")}));const t=V(this,"dialog.show",{dir:this.localize.dir()}),a=V(this,"dialog.overlay.show",{dir:this.localize.dir()});await Promise.all([W(this.panel,t.keyframes,t.options),W(this.overlay,a.keyframes,a.options)]),d(this,"sl-after-show")}else{d(this,"sl-hide"),this.modal.deactivate(),await Promise.all([X(this.dialog),X(this.overlay)]);const e=V(this,"dialog.hide",{dir:this.localize.dir()}),t=V(this,"dialog.overlay.hide",{dir:this.localize.dir()});await Promise.all([W(this.panel,e.keyframes,e.options),W(this.overlay,t.keyframes,t.options)]),this.dialog.hidden=!0,Q(this);const a=this.originalTrigger;"function"==typeof(null==a?void 0:a.focus)&&setTimeout((()=>a.focus())),d(this,"sl-after-hide")}}render(){return c`
+
+  @media (forced-colors: active) {
+    .dialog__panel {
+      border: solid 1px var(--sl-color-neutral-0);
+    }
+  }
+`,Y=class extends n{constructor(){super(...arguments),this.hasSlotController=new T(this,"footer"),this.localize=new B(this),this.open=!1,this.label="",this.noHeader=!1}connectedCallback(){super.connectedCallback(),this.handleDocumentKeyDown=this.handleDocumentKeyDown.bind(this),this.modal=new class{constructor(e){this.tabDirection="forward",this.element=e,this.handleFocusIn=this.handleFocusIn.bind(this),this.handleKeyDown=this.handleKeyDown.bind(this),this.handleKeyUp=this.handleKeyUp.bind(this)}activate(){W.push(this.element),document.addEventListener("focusin",this.handleFocusIn),document.addEventListener("keydown",this.handleKeyDown),document.addEventListener("keyup",this.handleKeyUp)}deactivate(){W=W.filter((e=>e!==this.element)),document.removeEventListener("focusin",this.handleFocusIn),document.removeEventListener("keydown",this.handleKeyDown),document.removeEventListener("keyup",this.handleKeyUp)}isActive(){return W[W.length-1]===this.element}checkFocus(){if(this.isActive()&&!this.element.matches(":focus-within")){const{start:e,end:t}=j(this.element),a="forward"===this.tabDirection?e:t;"function"==typeof(null==a?void 0:a.focus)&&a.focus({preventScroll:!0})}}handleFocusIn(){this.checkFocus()}handleKeyDown(e){"Tab"===e.key&&e.shiftKey&&(this.tabDirection="backward",requestAnimationFrame((()=>this.checkFocus())))}handleKeyUp(){this.tabDirection="forward"}}(this)}firstUpdated(){this.dialog.hidden=!this.open,this.open&&(this.addOpenListeners(),this.modal.activate(),V(this))}disconnectedCallback(){super.disconnectedCallback(),G(this)}async show(){if(!this.open)return this.open=!0,M(this,"sl-after-show")}async hide(){if(this.open)return this.open=!1,M(this,"sl-after-hide")}requestClose(e){if(this.emit("sl-request-close",{cancelable:!0,detail:{source:e}}).defaultPrevented){const e=N(this,"dialog.denyClose",{dir:this.localize.dir()});Q(this.panel,e.keyframes,e.options)}else this.hide()}addOpenListeners(){document.addEventListener("keydown",this.handleDocumentKeyDown)}removeOpenListeners(){document.removeEventListener("keydown",this.handleDocumentKeyDown)}handleDocumentKeyDown(e){this.open&&"Escape"===e.key&&(e.stopPropagation(),this.requestClose("keyboard"))}async handleOpenChange(){if(this.open){this.emit("sl-show"),this.addOpenListeners(),this.originalTrigger=document.activeElement,this.modal.activate(),V(this);const e=this.querySelector("[autofocus]");e&&e.removeAttribute("autofocus"),await Promise.all([R(this.dialog),R(this.overlay)]),this.dialog.hidden=!1,requestAnimationFrame((()=>{this.emit("sl-initial-focus",{cancelable:!0}).defaultPrevented||(e?e.focus({preventScroll:!0}):this.panel.focus({preventScroll:!0})),e&&e.setAttribute("autofocus","")}));const t=N(this,"dialog.show",{dir:this.localize.dir()}),a=N(this,"dialog.overlay.show",{dir:this.localize.dir()});await Promise.all([Q(this.panel,t.keyframes,t.options),Q(this.overlay,a.keyframes,a.options)]),this.emit("sl-after-show")}else{this.emit("sl-hide"),this.removeOpenListeners(),this.modal.deactivate(),await Promise.all([R(this.dialog),R(this.overlay)]);const e=N(this,"dialog.hide",{dir:this.localize.dir()}),t=N(this,"dialog.overlay.hide",{dir:this.localize.dir()});await Promise.all([Q(this.overlay,t.keyframes,t.options).then((()=>{this.overlay.hidden=!0})),Q(this.panel,e.keyframes,e.options).then((()=>{this.panel.hidden=!0}))]),this.dialog.hidden=!0,this.overlay.hidden=!1,this.panel.hidden=!1,G(this);const a=this.originalTrigger;"function"==typeof(null==a?void 0:a.focus)&&setTimeout((()=>a.focus())),this.emit("sl-after-hide")}}render(){return r`
       <div
         part="base"
-        class=${h({dialog:!0,"dialog--open":this.open,"dialog--has-footer":this.hasSlotController.test("footer")})}
-        @keydown=${this.handleKeyDown}
+        class=${d({dialog:!0,"dialog--open":this.open,"dialog--has-footer":this.hasSlotController.test("footer")})}
       >
         <div part="overlay" class="dialog__overlay" @click=${()=>this.requestClose("overlay")} tabindex="-1"></div>
 
@@ -116,34 +130,35 @@ import{r as e,f as t,_ as a,g as s,h as o,w as i,j as l,k as n,l as r,m as d,$ a
           role="dialog"
           aria-modal="true"
           aria-hidden=${this.open?"false":"true"}
-          aria-label=${p(this.noHeader?this.label:void 0)}
-          aria-labelledby=${p(this.noHeader?void 0:"title")}
+          aria-label=${c(this.noHeader?this.label:void 0)}
+          aria-labelledby=${c(this.noHeader?void 0:"title")}
           tabindex="0"
         >
-          ${this.noHeader?"":c`
+          ${this.noHeader?"":r`
                 <header part="header" class="dialog__header">
                   <h2 part="title" class="dialog__title" id="title">
                     <slot name="label"> ${this.label.length>0?this.label:String.fromCharCode(65279)} </slot>
                   </h2>
-                  <sl-icon-button
-                    part="close-button"
-                    exportparts="base:close-button__base"
-                    class="dialog__close"
-                    name="x"
-                    label=${this.localize.term("close")}
-                    library="system"
-                    @click="${()=>this.requestClose("close-button")}"
-                  ></sl-icon-button>
+                  <div part="header-actions" class="dialog__header-actions">
+                    <slot name="header-actions"></slot>
+                    <sl-icon-button
+                      part="close-button"
+                      exportparts="base:close-button__base"
+                      class="dialog__close"
+                      name="x-lg"
+                      label=${this.localize.term("close")}
+                      library="system"
+                      @click="${()=>this.requestClose("close-button")}"
+                    ></sl-icon-button>
+                  </div>
                 </header>
               `}
 
-          <div part="body" class="dialog__body">
-            <slot></slot>
-          </div>
+          <slot part="body" class="dialog__body"></slot>
 
           <footer part="footer" class="dialog__footer">
             <slot name="footer"></slot>
           </footer>
         </div>
       </div>
-    `}};function N(e){let t,a,s,o,i,l,n,r;const d=e[5].default,c=m(d,e,e[4],null);return{c(){t=y("sl-dialog"),c&&c.c(),a=v(),s=y("sl-button"),s.textContent="Cancel",o=v(),i=y("sl-button"),i.textContent="OK",b(s,"slot","footer"),b(s,"variant","secondary"),b(i,"slot","footer"),b(i,"variant","primary"),b(t,"label",e[0])},m(d,h){w(d,t,h),c&&c.m(t,null),_(t,a),_(t,s),_(t,o),_(t,i),e[8](t),l=!0,n||(r=[x(s,"click",e[6]),x(i,"click",e[7])],n=!0)},p(e,[a]){c&&c.p&&(!l||16&a)&&$(c,d,e,e[4],l?C(d,e[4],a,null):k(e[4]),null),(!l||1&a)&&b(t,"label",e[0])},i(e){l||(z(c,e),l=!0)},o(e){K(c,e),l=!1},d(a){a&&D(t),c&&c.d(a),e[8](null),n=!1,E(r)}}}function ee(e,t,a){let s,{$$slots:o={},$$scope:i}=t,{visible:l=!1}=t,{label:n=""}=t,r=F(),d=!1;L((()=>{const e=()=>{r(d?"confirmed":"cancelled"),a(3,l=!1)};return s.addEventListener("sl-after-hide",e),()=>{s.removeEventListener("sl-after-hide",e)}}));return e.$$set=e=>{"visible"in e&&a(3,l=e.visible),"label"in e&&a(0,n=e.label),"$$scope"in e&&a(4,i=e.$$scope)},e.$$.update=()=>{10&e.$$.dirty&&l&&(a(2,d=!1),s.show())},[n,s,d,l,i,o,()=>{s.hide()},()=>{a(2,d=!0),s.hide()},function(e){U[e?"unshift":"push"]((()=>{s=e,a(1,s)}))}]}M.styles=J,a([s(".dialog")],M.prototype,"dialog",2),a([s(".dialog__panel")],M.prototype,"panel",2),a([s(".dialog__overlay")],M.prototype,"overlay",2),a([o({type:Boolean,reflect:!0})],M.prototype,"open",2),a([o({reflect:!0})],M.prototype,"label",2),a([o({attribute:"no-header",type:Boolean,reflect:!0})],M.prototype,"noHeader",2),a([i("open",{waitUntilFirstUpdate:!0})],M.prototype,"handleOpenChange",1),M=a([l("sl-dialog")],M),B("dialog.show",{keyframes:[{opacity:0,transform:"scale(0.8)"},{opacity:1,transform:"scale(1)"}],options:{duration:250,easing:"ease"}}),B("dialog.hide",{keyframes:[{opacity:1,transform:"scale(1)"},{opacity:0,transform:"scale(0.8)"}],options:{duration:250,easing:"ease"}}),B("dialog.denyClose",{keyframes:[{transform:"scale(1)"},{transform:"scale(1.02)"},{transform:"scale(1)"}],options:{duration:250}}),B("dialog.overlay.show",{keyframes:[{opacity:0},{opacity:1}],options:{duration:250}}),B("dialog.overlay.hide",{keyframes:[{opacity:1},{opacity:0}],options:{duration:250}});class te extends u{constructor(e){super(),f(this,e,ee,N,g,{visible:3,label:0})}}function ae(e){let t;return{c(){t=S("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")},m(e,a){w(e,t,a)},d(e){e&&D(t)}}}function se(e){let t,a,s,o,i,l,n,r,d,c,h,p,u;function f(t){e[2](t)}let g={label:"Confirmation",$$slots:{default:[ae]},$$scope:{ctx:e}};return void 0!==e[0]&&(g.visible=e[0]),i=new te({props:g}),U.push((()=>q(i,"visible",f))),i.$on("confirmed",e[3]),i.$on("cancelled",e[4]),{c(){t=y("div"),a=y("h1"),a.textContent="Dialog",s=v(),o=y("div"),P(i.$$.fragment),n=v(),r=y("sl-button"),r.textContent="Open",d=S("\n  result: "),c=S(e[1]),b(r,"variant","primary"),A(t,"class","content")},m(l,f){w(l,t,f),_(t,a),_(t,s),_(t,o),H(i,o,null),_(t,n),_(t,r),_(t,d),_(t,c),h=!0,p||(u=x(r,"click",e[5]),p=!0)},p(e,[t]){const a={};64&t&&(a.$$scope={dirty:t,ctx:e}),!l&&1&t&&(l=!0,a.visible=e[0],I((()=>l=!1))),i.$set(a),(!h||2&t)&&T(c,e[1])},i(e){h||(z(i.$$.fragment,e),h=!0)},o(e){K(i.$$.fragment,e),h=!1},d(e){e&&D(t),j(i),p=!1,u()}}}function oe(e,t,a){let s=!1,o="";return[s,o,function(e){s=e,a(0,s)},()=>{a(1,o="confirmed!")},()=>{a(1,o="cancelled!")},()=>{a(0,s=!0)}]}class ie extends u{constructor(e){super(),f(this,e,oe,se,g,{})}}export{ie as default};
+    `}};function Z(e){let t,a,i,s,o,l,n,r;const d=e[5].default,c=f(d,e,e[4],null);return{c(){t=g("sl-dialog"),c&&c.c(),a=m(),i=g("sl-button"),i.textContent="Cancel",s=m(),o=g("sl-button"),o.textContent="OK",y(i,"slot","footer"),y(i,"variant","secondary"),y(o,"slot","footer"),y(o,"variant","primary"),y(t,"label",e[0])},m(d,h){v(d,t,h),c&&c.m(t,null),b(t,a),b(t,i),b(t,s),b(t,o),e[8](t),l=!0,n||(r=[_(i,"click",e[6]),_(o,"click",e[7])],n=!0)},p(e,[a]){c&&c.p&&(!l||16&a)&&w(c,d,e,e[4],l?k(d,e[4],a,null):x(e[4]),null),(!l||1&a)&&y(t,"label",e[0])},i(e){l||($(c,e),l=!0)},o(e){C(c,e),l=!1},d(a){a&&D(t),c&&c.d(a),e[8](null),n=!1,L(r)}}}function J(e,t,a){let i,{$$slots:s={},$$scope:o}=t,{visible:l=!1}=t,{label:n=""}=t,r=K(),d=!1;z((()=>{const e=()=>{r(d?"confirmed":"cancelled"),a(3,l=!1)};return i.addEventListener("sl-after-hide",e),()=>{i.removeEventListener("sl-after-hide",e)}}));return e.$$set=e=>{"visible"in e&&a(3,l=e.visible),"label"in e&&a(0,n=e.label),"$$scope"in e&&a(4,o=e.$$scope)},e.$$.update=()=>{10&e.$$.dirty&&l&&(a(2,d=!1),i.show())},[n,i,d,l,o,s,()=>{i.hide()},()=>{a(2,d=!0),i.hide()},function(e){E[e?"unshift":"push"]((()=>{i=e,a(1,i)}))}]}Y.styles=X,a([i(".dialog")],Y.prototype,"dialog",2),a([i(".dialog__panel")],Y.prototype,"panel",2),a([i(".dialog__overlay")],Y.prototype,"overlay",2),a([s({type:Boolean,reflect:!0})],Y.prototype,"open",2),a([s({reflect:!0})],Y.prototype,"label",2),a([s({attribute:"no-header",type:Boolean,reflect:!0})],Y.prototype,"noHeader",2),a([o("open",{waitUntilFirstUpdate:!0})],Y.prototype,"handleOpenChange",1),Y=a([l("sl-dialog")],Y),I("dialog.show",{keyframes:[{opacity:0,scale:.8},{opacity:1,scale:1}],options:{duration:250,easing:"ease"}}),I("dialog.hide",{keyframes:[{opacity:1,scale:1},{opacity:0,scale:.8}],options:{duration:250,easing:"ease"}}),I("dialog.denyClose",{keyframes:[{scale:1},{scale:1.02},{scale:1}],options:{duration:250}}),I("dialog.overlay.show",{keyframes:[{opacity:0},{opacity:1}],options:{duration:250}}),I("dialog.overlay.hide",{keyframes:[{opacity:1},{opacity:0}],options:{duration:250}});class ee extends h{constructor(e){super(),p(this,e,J,Z,u,{visible:3,label:0})}}function te(e){let t;return{c(){t=U("Lorem ipsum dolor sit amet, consectetur adipiscing elit.")},m(e,a){v(e,t,a)},d(e){e&&D(t)}}}function ae(e){let t,a,i,s,o,l,n,r,d,c,h,p,u;function f(t){e[2](t)}let w={label:"Confirmation",$$slots:{default:[te]},$$scope:{ctx:e}};return void 0!==e[0]&&(w.visible=e[0]),o=new ee({props:w}),E.push((()=>F(o,"visible",f,e[0]))),o.$on("confirmed",e[3]),o.$on("cancelled",e[4]),{c(){t=g("div"),a=g("h1"),a.textContent="Dialog",i=m(),s=g("div"),O(o.$$.fragment),n=m(),r=g("sl-button"),r.textContent="Open",d=U("\n  result: "),c=U(e[1]),y(r,"variant","primary"),q(t,"class","content")},m(l,f){v(l,t,f),b(t,a),b(t,i),b(t,s),P(o,s,null),b(t,n),b(t,r),b(t,d),b(t,c),h=!0,p||(u=_(r,"click",e[5]),p=!0)},p(e,[t]){const a={};64&t&&(a.$$scope={dirty:t,ctx:e}),!l&&1&t&&(l=!0,a.visible=e[0],S((()=>l=!1))),o.$set(a),(!h||2&t)&&H(c,e[1])},i(e){h||($(o.$$.fragment,e),h=!0)},o(e){C(o.$$.fragment,e),h=!1},d(e){e&&D(t),A(o),p=!1,u()}}}function ie(e,t,a){let i=!1,s="";return[i,s,function(e){i=e,a(0,i)},()=>{a(1,s="confirmed!")},()=>{a(1,s="cancelled!")},()=>{a(0,i=!0)}]}class se extends h{constructor(e){super(),p(this,e,ie,ae,u,{})}}export{se as default};
