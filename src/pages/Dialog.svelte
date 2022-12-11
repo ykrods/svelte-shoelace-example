@@ -18,6 +18,7 @@
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </Confirmation>
   </div>
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <sl-button
     variant="primary"
     on:click={ () => { dialogVisible = true; }}

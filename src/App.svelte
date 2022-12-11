@@ -17,6 +17,7 @@
 <main>
   <SwitchThemeButton class="switchThemeButton" />
 
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <sl-icon-button
     name="list"
     label="sidemenu"

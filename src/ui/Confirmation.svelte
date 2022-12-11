@@ -32,11 +32,13 @@
 </script>
 <sl-dialog {label} bind:this={dialog}>
   <slot></slot>
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <sl-button
     slot="footer"
     variant="secondary"
     on:click={ () => { dialog.hide(); }}
   >Cancel</sl-button>
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <sl-button
     slot="footer"
     variant="primary"

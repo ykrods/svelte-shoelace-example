@@ -14,6 +14,7 @@
     });
   }
 </script>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
 <sl-icon-button
   name={theme == "light" ? "moon" : "sun"}
   label={theme == "light" ? "dark mode" : "light mode"}

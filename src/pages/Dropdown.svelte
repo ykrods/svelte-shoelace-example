@@ -12,10 +12,12 @@
     <sl-dropdown>
       <sl-button slot="trigger" caret>Dropdown</sl-button>
       <sl-menu>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <sl-menu-item
           on:click={() => { selected = 'item1'; }}
           checked={ selected === 'item1'}
         >Item 1</sl-menu-item>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <sl-menu-item
           on:click={() => { selected = 'item2'; }}
           checked={ selected === 'item2'}
