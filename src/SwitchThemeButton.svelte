@@ -1,5 +1,5 @@
 <script>
-  import "@shoelace-style/shoelace/dist/components/icon-button/icon-button";
+  import "@shoelace-style/shoelace/dist/components/icon-button/icon-button.js";
 
   export { className as class };
 

@@ -1,5 +1,5 @@
 <script>
-  import "@shoelace-style/shoelace/dist/components/button/button";
+  import "@shoelace-style/shoelace/dist/components/button/button.js";
 
   import Confirmation from "../ui/Confirmation.svelte";
 

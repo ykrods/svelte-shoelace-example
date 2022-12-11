@@ -1,10 +1,16 @@
+import child_process from 'child_process';
+
 import svelte from 'rollup-plugin-svelte';
 import resolve from '@rollup/plugin-node-resolve';
 import css from 'rollup-plugin-css-only';
 import copy from "rollup-plugin-simple-copy";
 
-import { terser } from 'rollup-plugin-terser';
+import terser from '@rollup/plugin-terser';
 
+// https://github.com/rollup/plugins/issues/1366
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+global['__filename'] = __filename;
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -69,7 +75,7 @@ function serve() {
     writeBundle() {
       if (!started) {
         started = true;
-        require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
+        child_process.spawn('npm', ['run', 'start', '--', '--dev'], {
           stdio: ['ignore', 'inherit', 'inherit'],
           shell: true
         });

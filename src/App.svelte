@@ -1,7 +1,7 @@
 <script>
   import { fly } from "svelte/transition";
 
-  import "@shoelace-style/shoelace/dist/components/icon-button/icon-button";
+  import "@shoelace-style/shoelace/dist/components/icon-button/icon-button.js";
   import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
 
   import "./global.css";

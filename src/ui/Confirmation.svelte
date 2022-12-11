@@ -1,8 +1,8 @@
 <script>
   import { createEventDispatcher, onMount } from 'svelte';
 
-  import "@shoelace-style/shoelace/dist/components/button/button";
-  import "@shoelace-style/shoelace/dist/components/dialog/dialog";
+  import "@shoelace-style/shoelace/dist/components/button/button.js";
+  import "@shoelace-style/shoelace/dist/components/dialog/dialog.js";
 
   export let visible = false;
   export let label = "";

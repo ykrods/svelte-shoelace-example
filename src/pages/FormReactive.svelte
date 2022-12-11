@@ -1,9 +1,9 @@
 <script>
-  import "@shoelace-style/shoelace/dist/components/input/input";
-  import "@shoelace-style/shoelace/dist/components/select/select";
-  import "@shoelace-style/shoelace/dist/components/menu-item/menu-item";
-  import "@shoelace-style/shoelace/dist/components/checkbox/checkbox";
-  import "@shoelace-style/shoelace/dist/components/button/button";
+  import "@shoelace-style/shoelace/dist/components/input/input.js";
+  import "@shoelace-style/shoelace/dist/components/select/select.js";
+  import "@shoelace-style/shoelace/dist/components/menu-item/menu-item.js";
+  import "@shoelace-style/shoelace/dist/components/checkbox/checkbox.js";
+  import "@shoelace-style/shoelace/dist/components/button/button.js";
 
   let confirmation = '';
 
