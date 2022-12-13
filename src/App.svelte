@@ -15,13 +15,15 @@
   let showSidebar = true;
 </script>
 <main>
-  <SwitchThemeButton class="switchThemeButton" />
+  <span class="switchThemeButtonPosition">
+    <SwitchThemeButton />
+  </span>
 
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <sl-icon-button
     name="list"
     label="sidemenu"
-    class="toggleSidebarButton"
+    class="toggleSidebarButtonPosition"
     on:click={() => { showSidebar = !showSidebar; }}
   />
 
@@ -36,6 +38,19 @@
   </section>
 </main>
 <style>
+  .toggleSidebarButtonPosition {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 30;
+  }
+  .switchThemeButtonPosition {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 30;
+  }
+
   .sidebar-wrap {
     position: fixed;
     top: 0;

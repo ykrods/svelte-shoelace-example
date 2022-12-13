@@ -15,20 +15,6 @@ body {
   margin: 0;
 }
 
-/* global elements */
-.toggleSidebarButton {
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  z-index: 30;
-}
-.switchThemeButton {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  z-index: 30;
-}
-
 /* themes */
 .sl-theme-light a {
   color: inherit;
