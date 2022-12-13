@@ -4,7 +4,7 @@
   "description": "An example app of svelte with shoelace",
   "type": "module",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rm -r docs && rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --no-clear",
     "test": "echo \"Error: no test specified\" && exit 1"
