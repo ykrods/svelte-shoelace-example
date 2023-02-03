@@ -1,8 +1,7 @@
 <script>
   import "@shoelace-style/shoelace/dist/components/input/input.js";
   import "@shoelace-style/shoelace/dist/components/select/select.js";
-  import "@shoelace-style/shoelace/dist/components/menu/menu.js";
-  import "@shoelace-style/shoelace/dist/components/menu-item/menu-item.js";
+  import "@shoelace-style/shoelace/dist/components/option/option.js";
   import "@shoelace-style/shoelace/dist/components/checkbox/checkbox.js";
   import "@shoelace-style/shoelace/dist/components/button/button.js";
   import "@shoelace-style/shoelace/dist/components/alert/alert.js";
@@ -42,9 +41,9 @@
       clearable
       required
     >
-      <sl-menu-item value="birds">Birds</sl-menu-item>
-      <sl-menu-item value="cats">Cats</sl-menu-item>
-      <sl-menu-item value="dogs">Dogs</sl-menu-item>
+      <sl-option value="birds">Birds</sl-option>
+      <sl-option value="cats">Cats</sl-option>
+      <sl-option value="dogs">Dogs</sl-option>
     </sl-select>
     <br>
     <sl-checkbox name="agree" value="yes" required>
