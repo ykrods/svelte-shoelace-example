@@ -11,14 +11,14 @@
   },
   "private": true,
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.0.1",
-    "@rollup/plugin-terser": "^0.4.0",
-    "@shoelace-style/shoelace": "^2.0.0-beta.86",
-    "rollup": "^3.7.2",
+    "@rollup/plugin-node-resolve": "^15.0.2",
+    "@rollup/plugin-terser": "^0.4.3",
+    "@shoelace-style/shoelace": "^2.4.0",
+    "rollup": "^3.23.0",
     "rollup-plugin-css-only": "^4.3.0",
     "rollup-plugin-simple-copy": "github:ykrods/rollup-plugin-simple-copy",
-    "rollup-plugin-svelte": "^7.1.0",
+    "rollup-plugin-svelte": "^7.1.5",
     "sirv-cli": "^2.0.2",
-    "svelte": "^3.54.0"
+    "svelte": "^3.59.1"
   }
 }
