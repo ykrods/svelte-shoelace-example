@@ -19,10 +19,12 @@
       <sl-button slot="trigger" caret>Dropdown</sl-button>
       <sl-menu>
         <sl-menu-item
+          type="checkbox"
           value="item1"
           checked={ selected === 'item1'}
         >Item 1</sl-menu-item>
         <sl-menu-item
+          type="checkbox"
           value="item2"
           checked={ selected === 'item2'}
         >Item 2</sl-menu-item>
