@@ -27,6 +27,13 @@ export default {
   plugins: [
     svelte({
       extensions: ['.svelte', '.svg'],
+      onwarn: (warning, handler) => {
+        if (
+          warning.code === 'a11y-no-static-element-interactions' &&
+            warning.message.includes("<sl-")
+        ) return;
+        handler(warning);
+      },
       compilerOptions: {
         // enable run-time checks when not in production
         dev: !production
