@@ -1,1 +1,1 @@
-export{a0 as default}from"./main2.js";
+export{a3 as default}from"./main2.js";
