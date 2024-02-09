@@ -1,5 +1,5 @@
 <script>
-  import { fly } from "svelte/transition";
+  import { fly, fade } from "svelte/transition";
 
   import "@shoelace-style/shoelace/dist/components/icon-button/icon-button.js";
   import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
@@ -12,7 +12,11 @@
 
   setBasePath('/svelte-shoelace-example/shoelace');
 
-  let showSidebar = true;
+  let showSidebar = isMobile() ? false : true;
+
+  function isMobile() {
+    return !window.matchMedia("(480px < width)").matches;
+  }
 </script>
 <main>
   <span class="switchThemeButtonPosition">
@@ -33,9 +37,13 @@
     </aside>
   {/if}
 
-  <section class="content-wrap" style={`left: ${ showSidebar ? 250: 0 }px`}>
+  <section class="content-wrap" style={`left: ${ (showSidebar && !isMobile()) ? 250: 0 }px`}>
     <Router />
   </section>
+
+  {#if showSidebar && isMobile() }
+    <div transition:fade class="mask"></div>
+  {/if}
 </main>
 <style>
   .toggleSidebarButtonPosition {
@@ -67,5 +75,14 @@
     right: 0;
     bottom: 0;
     transition: left 400ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+  .mask {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: rgba(0,0,0, 0.33);
   }
 </style>
