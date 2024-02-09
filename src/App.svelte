@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   import { fly, fade } from "svelte/transition";
 
   import "@shoelace-style/shoelace/dist/components/icon-button/icon-button.js";
@@ -16,6 +17,19 @@
 
   function isMobile() {
     return !window.matchMedia("(480px < width)").matches;
+  }
+
+  onMount(() => {
+    window.addEventListener("hashchange", onHashChange, false);
+    return () => {
+      window.removeEventListener("hashChange", onHashChange, false);
+    };
+  });
+
+  function onHashChange() {
+    if (isMobile()) {
+      showSidebar = false;
+    }
   }
 </script>
 <main>
