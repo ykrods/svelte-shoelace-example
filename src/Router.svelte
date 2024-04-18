@@ -9,6 +9,7 @@
     "#Form-reactive": () => import("./pages/FormReactive.svelte"),
     "#Dropdown": () => import("./pages/Dropdown.svelte"),
     "#Dialog": () => import("./pages/Dialog.svelte"),
+    "#ProgressRing": () => import("./pages/ProgressRing.svelte"),
   }
 
   let current;
