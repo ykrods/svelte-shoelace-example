@@ -5,8 +5,6 @@
   import "@shoelace-style/shoelace/dist/components/icon-button/icon-button.js";
   import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
 
-  import "./global.css";
-
   import Router from "./Router.svelte";
   import SidebarContent from "./SidebarContent.svelte";
   import SwitchThemeButton from "./SwitchThemeButton.svelte";

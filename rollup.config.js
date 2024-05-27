@@ -54,10 +54,6 @@ export default {
             return re.test(src);
           }
         },
-        {
-          src: "node_modules/@shoelace-style/shoelace/dist/themes",
-          dest: `${dest}/shoelace/themes`,
-        }
       ],
     }),
     resolve({
