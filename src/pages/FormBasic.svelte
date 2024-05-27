@@ -25,7 +25,8 @@
 </svelte:head>
 <div class="content">
   <h1>Form - basic</h1>
-  <form on:submit|preventDefault={onSubmit}>
+
+  <form class="attention-error" on:submit|preventDefault={onSubmit}>
     <sl-input
       name="name"
       type="text"
