@@ -1,4 +1,6 @@
 <script>
+  import { onMount } from "svelte";
+
   import "@shoelace-style/shoelace/dist/components/input/input.js";
   import "@shoelace-style/shoelace/dist/components/select/select.js";
   import "@shoelace-style/shoelace/dist/components/option/option.js";
@@ -10,17 +12,22 @@
   let alert;
   let alertText = '';
 
-  function readyForCustomElements() {
-    return Promise.all([
-      customElements.whenDefined('sl-button'),
-      customElements.whenDefined('sl-checkbox'),
-      customElements.whenDefined('sl-input'),
-      customElements.whenDefined('sl-option'),
-      customElements.whenDefined('sl-select')
-    ]);
-  }
+  let form;
+
+  onMount(() => {
+    // @see https://shoelace.style/getting-started/form-controls#required-fields
+    customElements.whenDefined("sl-input").then(() => {
+      form?.addEventListener("submit", onSubmit);
+    });
+
+    return () => {
+      form?.removeEventListener("submit", onSubmit);
+    }
+  });
 
   function onSubmit(evt) {
+    evt.preventDefault();
+
     console.log(evt);
     const formData = new FormData(evt.target);
     alertText = '';
@@ -36,35 +43,33 @@
 <div class="content">
   <h1>Form - basic</h1>
 
-  {#await readyForCustomElements() then }
-    <form class="attention-error" on:submit|preventDefault={onSubmit}>
-      <sl-input
-        name="name"
-        type="text"
-        label="Name"
-        required
-        maxlength="10"
-        help-text="Input your name, Maximum length: 10 characters."
-      ></sl-input>
-      <br>
-      <sl-select
-        name="favorite"
-        label="Select your favorite"
-        clearable
-        required
-      >
-        <sl-option value="birds">Birds</sl-option>
-        <sl-option value="cats">Cats</sl-option>
-        <sl-option value="dogs">Dogs</sl-option>
-      </sl-select>
-      <br>
-      <sl-checkbox name="agree" value="yes" required>
-        I totally agree
-      </sl-checkbox>
-      <br><br>
-      <sl-button type="submit" variant="primary">Submit</sl-button>
-    </form>
-  {/await}
+  <form class="attention-error" bind:this={form}>
+    <sl-input
+      name="name"
+      type="text"
+      label="Name"
+      required
+      maxlength="10"
+      help-text="Input your name, Maximum length: 10 characters."
+    ></sl-input>
+    <br>
+    <sl-select
+      name="favorite"
+      label="Select your favorite"
+      clearable
+      required
+    >
+      <sl-option value="birds">Birds</sl-option>
+      <sl-option value="cats">Cats</sl-option>
+      <sl-option value="dogs">Dogs</sl-option>
+    </sl-select>
+    <br>
+    <sl-checkbox name="agree" value="yes" required>
+      I totally agree
+    </sl-checkbox>
+    <br><br>
+    <sl-button type="submit" variant="primary">Submit</sl-button>
+  </form>
 
   <sl-alert type="success" duration=3000 closable bind:this={alert}>
     <sl-icon slot="icon" name="check2-circle"></sl-icon>
