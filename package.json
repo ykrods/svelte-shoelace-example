@@ -1,0 +1,24 @@
+{
+  "name": "svelte-shoelace-example",
+  "private": true,
+  "version": "1.0.0",
+  "description": "An example app of svelte with shoelace",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "keywords": [
+    "svelte",
+    "shoelace"
+  ],
+  "author": "ykrods",
+  "license": "MIT",
+  "devDependencies": {
+    "@shoelace-style/shoelace": "^2.16.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0-next.6",
+    "svelte": "^5.0.0-next.238",
+    "vite": "^5.4.2"
+  }
+}
