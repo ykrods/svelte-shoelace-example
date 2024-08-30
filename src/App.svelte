@@ -1,8 +1,9 @@
 <script lang="ts">
-  import { SLApp, SLIconButton } from "$src/shoelace";
+  import { SLApp } from "$src/shoelace";
+  import Router from "$src/Router.svelte";
 </script>
 <div>
   <SLApp basePath="/svelte-shoelace-example/shoelace/">
-    <SLIconButton name="moon" onclick={() => console.log("foo")}/>
+    <Router/>
   </SLApp>
 </div>
