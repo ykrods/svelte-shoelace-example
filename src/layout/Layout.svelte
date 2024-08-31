@@ -70,6 +70,7 @@
     right: 0;
     bottom: 0;
     transition: left 400ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    padding-left: 3em;
   }
   .mask {
     position: fixed;
