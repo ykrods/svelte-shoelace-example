@@ -5,7 +5,7 @@
 
   const routes = {
     "#Home": () => import("$src/pages/Home.svelte"),
-    // "#ProgressRing": () => import("$src/pages/ProgressRing.svelte"),
+    "#ProgressRing": () => import("$src/pages/ProgressRing.svelte"),
   };
 
   let RouteComponent: Component = $state();
