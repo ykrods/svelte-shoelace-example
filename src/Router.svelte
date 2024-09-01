@@ -5,6 +5,7 @@
 
   const routes = {
     "#Home": () => import("$src/pages/Home.svelte"),
+    "#Form-basic": () => import("./pages/FormBasic.svelte"),
     "#Dialog": () => import("./pages/Dialog.svelte"),
     "#ProgressRing": () => import("$src/pages/ProgressRing.svelte"),
   };
