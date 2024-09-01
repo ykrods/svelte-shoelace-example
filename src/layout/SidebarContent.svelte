@@ -9,6 +9,14 @@
   </ul>
 </div>
 <style>
+  a {
+    color: var(--sl-color-neutral-700);
+    text-decoration: none;
+  }
+  a:hover {
+    color: var(--sl-color-primary-700);
+    text-decoration: underline;
+  }
   ul {
     padding: 0;
     list-style: none;

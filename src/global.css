@@ -1,0 +1,53 @@
+/* common styles */
+body {
+  font-family: var(--sl-font-sans);
+  font-size: var(--sl-font-size-medium);
+  font-weight: var(--sl-font-weight-normal);
+  letter-spacing: var(--sl-letter-spacing-normal);
+  background-color: var(--sl-color-neutral-0);
+  color: var(--sl-color-neutral-1000);
+  line-height: var(--sl-line-height-normal);
+}
+
+.content {
+  & > h1 {
+    margin: 0;
+  }
+
+  & a {
+    color: var(--sl-color-primary-700);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-decoration-style: dotted;
+
+    &:hover {
+      text-decoration-style: solid;
+    }
+  }
+}
+
+/** form */
+form.attention-error {
+  & sl-input[data-user-invalid]::part(base),
+  & sl-select[data-user-invalid]::part(combobox),
+  & form.attention-error sl-checkbox[data-user-invalid]::part(control) {
+    border-color: var(--sl-color-danger-600);
+  }
+
+  & [data-user-invalid]::part(form-control-label),
+  & [data-user-invalid]::part(form-control-help-text),
+  & sl-checkbox[data-user-invalid]::part(label) {
+    color: var(--sl-color-danger-700);
+  }
+
+  & sl-checkbox[data-user-invalid]::part(control) {
+    outline: none;
+  }
+
+  & sl-input:focus-within[data-user-invalid]::part(base),
+  & sl-select:focus-within[data-user-invalid]::part(combobox),
+  & sl-checkbox:focus-within[data-user-invalid]::part(control) {
+    border-color: var(--sl-color-danger-600);
+    box-shadow: 0 0 0 var(--sl-focus-ring-width) var(--sl-color-danger-300);
+  }
+}
