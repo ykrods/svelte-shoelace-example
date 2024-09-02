@@ -4,12 +4,12 @@
   import NotFound from "$src/pages/NotFound.svelte";
 
   const routes = {
-    "#Home": () => import("$src/pages/Home.svelte"),
+    "#Home": () => import("./pages/Home.svelte"),
     "#Form-basic": () => import("./pages/FormBasic.svelte"),
     "#Form-reactive": () => import("./pages/FormReactive.svelte"),
     "#Dropdown": () => import("./pages/Dropdown.svelte"),
     "#Dialog": () => import("./pages/Dialog.svelte"),
-    "#ProgressRing": () => import("$src/pages/ProgressRing.svelte"),
+    "#ProgressRing": () => import("./pages/ProgressRing.svelte"),
   };
 
   let RouteComponent: Component = $state();

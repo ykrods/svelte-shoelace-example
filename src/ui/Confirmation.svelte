@@ -1,23 +1,25 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
 
-  import "@shoelace-style/shoelace/dist/components/dialog/dialog";
+  import SlDialog from "@shoelace-style/shoelace/dist/components/dialog/dialog";
 
   import { SLButton } from "$src/shoelace";
 
+  type Props = Partial<SlDialog>;
+
   let {
     open = $bindable(false),
-    title = "",
     onConfirm = null,
     onCancel = null,
     children,
+    ...props
   }: {
     open: boolean
     title: string
     onConfirm?: () => any
     onCancel?: () => any
     children: Snippet
-  } = $props();
+  } & Props = $props();
 
   let dialog;
   let confirmed = $state(false);
@@ -50,7 +52,7 @@
     }
   });
 </script>
-<sl-dialog bind:this={dialog} label={title}>
+<sl-dialog bind:this={dialog} {...props}>
   {@render children()}
   <div slot="footer">
     <SLButton

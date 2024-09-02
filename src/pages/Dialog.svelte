@@ -12,7 +12,7 @@
   <div>
     <Confirmation
       bind:open
-      title="Confirmation"
+      label="Confirmation"
       onConfirm={() => { result = "confirmed"; }}
       onCancel={() => { result = "canceled"; }}
     >
