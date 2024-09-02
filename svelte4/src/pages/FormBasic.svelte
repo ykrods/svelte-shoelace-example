@@ -1,20 +1,20 @@
-<script lang="ts">
-  import "@shoelace-style/shoelace/dist/components/input/input";
-  import "@shoelace-style/shoelace/dist/components/select/select";
-  import "@shoelace-style/shoelace/dist/components/option/option";
-  import "@shoelace-style/shoelace/dist/components/checkbox/checkbox";
-  import "@shoelace-style/shoelace/dist/components/button/button";
-  import "@shoelace-style/shoelace/dist/components/alert/alert";
-  import "@shoelace-style/shoelace/dist/components/icon/icon";
+<script>
+  import { onMount } from "svelte";
 
-  import Layout from "$src/layout/Layout.svelte";
+  import "@shoelace-style/shoelace/dist/components/input/input.js";
+  import "@shoelace-style/shoelace/dist/components/select/select.js";
+  import "@shoelace-style/shoelace/dist/components/option/option.js";
+  import "@shoelace-style/shoelace/dist/components/checkbox/checkbox.js";
+  import "@shoelace-style/shoelace/dist/components/button/button.js";
+  import "@shoelace-style/shoelace/dist/components/alert/alert.js";
+  import "@shoelace-style/shoelace/dist/components/icon/icon.js";
 
   let alert;
-  let alertText = $state('');
+  let alertText = '';
 
   let form;
 
-  $effect(() => {
+  onMount(() => {
     // @see https://shoelace.style/getting-started/form-controls#required-fields
     customElements.whenDefined("sl-input").then(() => {
       form?.addEventListener("submit", onSubmit);
@@ -40,7 +40,7 @@
 <svelte:head>
   <title>Form - basic</title>
 </svelte:head>
-<Layout>
+<div class="content">
   <h1>Form - basic</h1>
 
   <form class="attention-error" bind:this={form}>
@@ -75,4 +75,4 @@
     <sl-icon slot="icon" name="check2-circle"></sl-icon>
     <pre>{ alertText }</pre>
   </sl-alert>
-</Layout>
+</div>

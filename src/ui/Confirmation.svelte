@@ -1,21 +1,38 @@
-<script>
-  import { createEventDispatcher, onMount } from 'svelte';
+<script lang="ts">
+  import type { Snippet } from "svelte";
 
-  import "@shoelace-style/shoelace/dist/components/button/button.js";
-  import "@shoelace-style/shoelace/dist/components/dialog/dialog.js";
+  import SlDialog from "@shoelace-style/shoelace/dist/components/dialog/dialog";
 
-  export let visible = false;
-  export let label = "";
+  import { SLButton } from "$src/shoelace";
 
-  let dispatch = createEventDispatcher();
+  type Props = Partial<SlDialog>;
+
+  let {
+    open = $bindable(false),
+    onConfirm = null,
+    onCancel = null,
+    children,
+    ...props
+  }: {
+    open: boolean
+    title: string
+    onConfirm?: () => any
+    onCancel?: () => any
+    children: Snippet
+  } & Props = $props();
 
   let dialog;
-  let confirmed = false;
+  let confirmed = $state(false);
 
-  onMount(() => {
+  $effect(() => {
     const afterHide = () => {
-      dispatch(confirmed ? "confirmed" : "cancelled");
-      visible = false;
+      open = false;
+      if (onConfirm && confirmed) {
+        onConfirm();
+      }
+      if (onCancel && !confirmed) {
+        onCancel();
+      }
     };
 
     dialog.addEventListener('sl-after-hide', afterHide);
@@ -25,23 +42,22 @@
     }
   });
 
-  $: if (visible) {
-    confirmed = false;
-    dialog.show();
-  }
+  $effect(() => {
+    if (open && !dialog.open) {
+      dialog.show();
+      confirmed = false;
+    }
+    if (!open && dialog.open) {
+      dialog.hide();
+    }
+  });
 </script>
-<sl-dialog {label} bind:this={dialog}>
-  <slot></slot>
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <sl-button
-    slot="footer"
-    variant="secondary"
-    on:click={ () => { dialog.hide(); }}
-  >Cancel</sl-button>
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <sl-button
-    slot="footer"
-    variant="primary"
-    on:click={ () => { confirmed = true; dialog.hide(); }}
-  >OK</sl-button>
+<sl-dialog bind:this={dialog} {...props}>
+  {@render children()}
+  <div slot="footer">
+    <SLButton
+      variant="primary"
+      onclick={() => { confirmed = true; open = false; }}
+      >OK</SLButton>
+  </div>
 </sl-dialog>

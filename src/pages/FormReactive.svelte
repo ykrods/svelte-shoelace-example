@@ -1,26 +1,45 @@
-<script>
-  import "@shoelace-style/shoelace/dist/components/input/input.js";
-  import "@shoelace-style/shoelace/dist/components/select/select.js";
-  import "@shoelace-style/shoelace/dist/components/menu-item/menu-item.js";
-  import "@shoelace-style/shoelace/dist/components/checkbox/checkbox.js";
-  import "@shoelace-style/shoelace/dist/components/button/button.js";
+<script lang="ts">
+  import "@shoelace-style/shoelace/dist/components/input/input";
+  import "@shoelace-style/shoelace/dist/components/select/select";
+  import "@shoelace-style/shoelace/dist/components/menu-item/menu-item";
+  import "@shoelace-style/shoelace/dist/components/checkbox/checkbox";
+  import "@shoelace-style/shoelace/dist/components/button/button";
 
-  let confirmation = '';
+  import Layout from "$src/layout/Layout.svelte";
 
-  $: upper = confirmation.toUpperCase();
+  let confirmation = $state('');
+  let form;
+
+  let upper = $derived(confirmation.toUpperCase());
+
+  $effect(() => {
+    // @see https://shoelace.style/getting-started/form-controls#required-fields
+    customElements.whenDefined("sl-input").then(() => {
+      form?.addEventListener("submit", onSubmit);
+    });
+
+    return () => {
+      form?.removeEventListener("submit", onSubmit);
+    }
+  });
+
+  function onSubmit(evt: SubmitEvent) {
+    evt.preventDefault();
+    alert('confirmed!');
+  }
 </script>
 <svelte:head>
   <title>Form - reactive</title>
 </svelte:head>
-<div class="content">
+<Layout>
   <h1>Form - reactive</h1>
-  <form class="attention-error" on:submit|preventDefault={ () => { alert('confirmed!'); }}>
+  <form class="attention-error" bind:this={form}>
     <sl-input
       name="Confirmation"
       type="text"
       label="confirmation"
       value={confirmation}
-      on:sl-input={(e) => { confirmation = e.target.value; }}
+      onsl-input={(e) => { confirmation = e.target.value; }}
       required
       pattern="shoelace"
       help-text="Please type 'shoelace'"
@@ -39,4 +58,4 @@
       variant="primary"
     >Submit</sl-button>
   </form>
-</div>
+</Layout>

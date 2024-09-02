@@ -1,27 +1,27 @@
 <script>
-  import "@shoelace-style/shoelace/dist/components/button/button.js";
+  import Layout from "$src/layout/Layout.svelte";
 
-  import Confirmation from "../ui/Confirmation.svelte";
+  import { SLButton } from "$src/shoelace";
+  import Confirmation from "$src/ui/Confirmation.svelte";
 
-  let dialogVisible = false;
-  let result = "";
+  let open = $state(false);
+  let result = $state("");
 </script>
-<div class="content">
+<Layout>
   <h1>Dialog</h1>
   <div>
     <Confirmation
-      bind:visible={dialogVisible}
+      bind:open
       label="Confirmation"
-      on:confirmed={ () => { result = "confirmed!"; } }
-      on:cancelled={ () => { result = "cancelled!"; } }
+      onConfirm={() => { result = "confirmed"; }}
+      onCancel={() => { result = "canceled"; }}
     >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </Confirmation>
   </div>
-  <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <sl-button
+  <SLButton
     variant="primary"
-    on:click={ () => { dialogVisible = true; }}
-  >Open</sl-button>
+    onclick={() => { open = true; }}
+    >Open</SLButton>
   result: { result }
-</div>
+</Layout>

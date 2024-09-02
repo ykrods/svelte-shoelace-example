@@ -1,21 +1,23 @@
-<script>
-  import "@shoelace-style/shoelace/dist/components/dropdown/dropdown.js";
-  import "@shoelace-style/shoelace/dist/components/divider/divider.js";
-  import "@shoelace-style/shoelace/dist/components/button/button.js";
-  import "@shoelace-style/shoelace/dist/components/menu/menu.js";
-  import "@shoelace-style/shoelace/dist/components/menu-item/menu-item.js";
+<script lang="ts">
+  import "@shoelace-style/shoelace/dist/components/dropdown/dropdown";
+  import "@shoelace-style/shoelace/dist/components/divider/divider";
+  import "@shoelace-style/shoelace/dist/components/button/button";
+  import "@shoelace-style/shoelace/dist/components/menu/menu";
+  import "@shoelace-style/shoelace/dist/components/menu-item/menu-item";
 
-  let selected = '';
+  import Layout from "$src/layout/Layout.svelte";
+
+  let selected = $state('');
 
   function onSelect(evt) {
     selected = evt.detail.item.value;
   }
 
 </script>
-<div class="content">
+<Layout>
   <h1>Dropdown</h1>
   <p>
-    <sl-dropdown on:sl-select={onSelect}>
+    <sl-dropdown onsl-select={onSelect}>
       <sl-button slot="trigger" caret>Dropdown</sl-button>
       <sl-menu>
         <sl-menu-item
@@ -28,14 +30,14 @@
           value="item2"
           checked={ selected === 'item2'}
         >Item 2</sl-menu-item>
-        <sl-divider/>
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <sl-divider></sl-divider>
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
         <sl-menu-item
-          on:click={ () => { selected = ''; } }
+          onclick={ () => { selected = ''; } }
         >Clear</sl-menu-item>
       </sl-menu>
     </sl-dropdown>
     <br>
     selected: { selected }
   </p>
-</div>
+</Layout>

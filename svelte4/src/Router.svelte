@@ -1,7 +1,7 @@
-<script lang="ts">
-  import type { Component } from "svelte";
+<script>
+  import { onMount } from "svelte";
 
-  import NotFound from "$src/pages/NotFound.svelte";
+  import NotFound from "./pages/NotFound.svelte";
 
   const routes = {
     "#Home": () => import("./pages/Home.svelte"),
@@ -10,11 +10,11 @@
     "#Dropdown": () => import("./pages/Dropdown.svelte"),
     "#Dialog": () => import("./pages/Dialog.svelte"),
     "#ProgressRing": () => import("./pages/ProgressRing.svelte"),
-  };
+  }
 
-  let RouteComponent: Component = $state();
+  let current;
 
-  $effect(() => {
+  onMount(() => {
     onHashChange();
     window.addEventListener("hashchange", onHashChange, false);
     return () => {
@@ -25,10 +25,10 @@
   async function onHashChange() {
     const hash = window.location.hash || "#Home";
     if (routes[hash]) {
-      RouteComponent = (await routes[hash]()).default;
+      current = (await routes[hash]()).default;
     } else {
-      RouteComponent = NotFound;
+      current = NotFound;
     }
   }
 </script>
-<RouteComponent />
+<svelte:component this={current}/>

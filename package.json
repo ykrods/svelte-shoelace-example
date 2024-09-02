@@ -1,24 +1,26 @@
 {
   "name": "svelte-shoelace-example",
+  "private": true,
   "version": "1.0.0",
   "description": "An example app of svelte with shoelace",
   "type": "module",
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public --no-clear",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "npx svelte-check"
   },
-  "private": true,
+  "keywords": [
+    "svelte",
+    "shoelace"
+  ],
+  "author": "ykrods",
+  "license": "MIT",
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-terser": "^0.4.4",
     "@shoelace-style/shoelace": "^2.16.0",
-    "rollup": "^4.21.0",
-    "rollup-plugin-css-only": "^4.5.2",
+    "@sveltejs/vite-plugin-svelte": "^4.0.0-next.6",
     "rollup-plugin-simple-copy": "github:ykrods/rollup-plugin-simple-copy",
-    "rollup-plugin-svelte": "^7.2.2",
-    "sirv-cli": "^2.0.2",
-    "svelte": "^4.2.19"
+    "svelte": "^5.0.0-next.238",
+    "vite": "^5.4.2"
   }
 }
