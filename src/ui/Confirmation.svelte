@@ -1,63 +1,45 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
 
-  import SlDialog from "@shoelace-style/shoelace/dist/components/dialog/dialog";
-
-  import { SLButton } from "$src/shoelace";
-
-  type Props = Partial<SlDialog>;
+  import { SLButton, SLDialog } from "$src/shoelace";
 
   let {
-    open = $bindable(false),
     onConfirm = null,
     onCancel = null,
     children,
-    ...props
+    open = $bindable(false),
+    label,
   }: {
-    open: boolean
-    title: string
     onConfirm?: () => any
     onCancel?: () => any
     children: Snippet
-  } & Props = $props();
+    open: boolean
+    label: string
+  } = $props();
 
-  let dialog;
   let confirmed = $state(false);
 
-  $effect(() => {
-    const afterHide = () => {
-      open = false;
-      if (onConfirm && confirmed) {
-        onConfirm();
-      }
-      if (onCancel && !confirmed) {
-        onCancel();
-      }
-    };
-
-    dialog.addEventListener('sl-after-hide', afterHide);
-
-    return () => {
-      dialog.removeEventListener('sl-after-hide', afterHide);
+  function onClose() {
+    if (confirmed) {
+      if (onConfirm) onConfirm();
+    } else {
+      if (onCancel) onCancel();
     }
-  });
+  }
 
   $effect(() => {
-    if (open && !dialog.open) {
-      dialog.show();
-      confirmed = false;
-    }
-    if (!open && dialog.open) {
-      dialog.hide();
-    }
+    if (open) confirmed = false;
   });
 </script>
-<sl-dialog bind:this={dialog} {...props}>
+<SLDialog
+  bind:open
+  {label}
+  {onClose}
+>
   {@render children()}
-  <div slot="footer">
-    <SLButton
-      variant="primary"
-      onclick={() => { confirmed = true; open = false; }}
-      >OK</SLButton>
-  </div>
-</sl-dialog>
+
+  {#snippet footer()}
+    <SLButton onclick={() => { open = false; }}>Cancel</SLButton>
+    <SLButton variant="primary" onclick={() => { confirmed = true; open = false; }}>OK</SLButton>
+  {/snippet}
+</SLDialog>
