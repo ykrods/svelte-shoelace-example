@@ -20,7 +20,7 @@
     "@shoelace-style/shoelace": "^2.16.0",
     "@sveltejs/vite-plugin-svelte": "^4.0.0-next.6",
     "rollup-plugin-simple-copy": "github:ykrods/rollup-plugin-simple-copy",
-    "svelte": "^5.0.0-next.238",
+    "svelte": "^5.0.0-next.243",
     "vite": "^5.4.2"
   }
 }
