@@ -25,7 +25,7 @@
     footer?: Snippet
   } & Props = $props();
 
-  let dialog;
+  let dialog: SlDialog;
 
   $effect(() => {
     const afterHide = () => {

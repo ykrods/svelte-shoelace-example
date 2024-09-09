@@ -9,21 +9,10 @@
 
   import Layout from "$src/layout/Layout.svelte";
 
+  import { SLForm } from "$src/shoelace";
+
   let alert;
   let alertText = $state('');
-
-  let form;
-
-  $effect(() => {
-    // @see https://shoelace.style/getting-started/form-controls#required-fields
-    customElements.whenDefined("sl-input").then(() => {
-      form?.addEventListener("submit", onSubmit);
-    });
-
-    return () => {
-      form?.removeEventListener("submit", onSubmit);
-    }
-  });
 
   function onSubmit(evt) {
     evt.preventDefault();
@@ -43,7 +32,7 @@
 <Layout>
   <h1>Form - basic</h1>
 
-  <form class="attention-error" bind:this={form}>
+  <SLForm {onSubmit}>
     <sl-input
       name="name"
       type="text"
@@ -69,7 +58,7 @@
     </sl-checkbox>
     <br><br>
     <sl-button type="submit" variant="primary">Submit</sl-button>
-  </form>
+  </SLForm>
 
   <sl-alert type="success" duration=3000 closable bind:this={alert}>
     <sl-icon slot="icon" name="check2-circle"></sl-icon>

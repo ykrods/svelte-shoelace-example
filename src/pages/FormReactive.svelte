@@ -1,27 +1,13 @@
 <script lang="ts">
   import "@shoelace-style/shoelace/dist/components/input/input";
-  import "@shoelace-style/shoelace/dist/components/select/select";
-  import "@shoelace-style/shoelace/dist/components/menu-item/menu-item";
-  import "@shoelace-style/shoelace/dist/components/checkbox/checkbox";
   import "@shoelace-style/shoelace/dist/components/button/button";
 
   import Layout from "$src/layout/Layout.svelte";
+  import { SLForm } from "$src/shoelace";
 
   let confirmation = $state('');
-  let form;
 
   let upper = $derived(confirmation.toUpperCase());
-
-  $effect(() => {
-    // @see https://shoelace.style/getting-started/form-controls#required-fields
-    customElements.whenDefined("sl-input").then(() => {
-      form?.addEventListener("submit", onSubmit);
-    });
-
-    return () => {
-      form?.removeEventListener("submit", onSubmit);
-    }
-  });
 
   function onSubmit(evt: SubmitEvent) {
     evt.preventDefault();
@@ -33,7 +19,7 @@
 </svelte:head>
 <Layout>
   <h1>Form - reactive</h1>
-  <form class="attention-error" bind:this={form}>
+  <SLForm {onSubmit}>
     <sl-input
       name="Confirmation"
       type="text"
@@ -57,5 +43,5 @@
       type="submit"
       variant="primary"
     >Submit</sl-button>
-  </form>
+  </SLForm>
 </Layout>

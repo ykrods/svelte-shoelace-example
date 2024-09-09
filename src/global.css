@@ -27,7 +27,7 @@ body {
 }
 
 /** form */
-form.attention-error {
+form {
   & sl-input[data-user-invalid]::part(base),
   & sl-select[data-user-invalid]::part(combobox),
   & form.attention-error sl-checkbox[data-user-invalid]::part(control) {
