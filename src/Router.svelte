@@ -10,6 +10,7 @@
     "#Dropdown": () => import("./pages/Dropdown.svelte"),
     "#Dialog": () => import("./pages/Dialog.svelte"),
     "#ProgressRing": () => import("./pages/ProgressRing.svelte"),
+    "#Tab": () => import("./pages/Tab.svelte"),
   };
 
   let RouteComponent: Component = $state();

@@ -6,6 +6,7 @@
     <li><a href="#Dropdown">Dropdown</a></li>
     <li><a href="#Dialog">Dialog</a></li>
     <li><a href="#ProgressRing">ProgressRing</a></li>
+    <li><a href="#Tab">Tab</a></li>
   </ul>
 </div>
 <style>
