@@ -16,7 +16,7 @@
     ...props
   } : {
     tabs: Tab[]
-    tabTemplate?: Snippet
+    tabTemplate?: Snippet<[Tab, number]>
     children: Snippet
   } & Props = $props();
 </script>

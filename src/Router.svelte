@@ -11,6 +11,7 @@
     "#Dialog": () => import("./pages/Dialog.svelte"),
     "#ProgressRing": () => import("./pages/ProgressRing.svelte"),
     "#Tab": () => import("./pages/Tab.svelte"),
+    "#Radio-Switch": () => import("./pages/RadioSwitch.svelte"),
   };
 
   let RouteComponent: Component = $state();

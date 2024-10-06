@@ -11,6 +11,7 @@
     ...props
   } : {
     children: Snippet
+    slot?: string
   } & Props = $props();
 </script>
 <sl-tab {...props}>

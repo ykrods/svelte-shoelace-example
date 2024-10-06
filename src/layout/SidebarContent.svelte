@@ -7,6 +7,7 @@
     <li><a href="#Dialog">Dialog</a></li>
     <li><a href="#ProgressRing">ProgressRing</a></li>
     <li><a href="#Tab">Tab</a></li>
+    <li><a href="#Radio-Switch">Radio/Switch</a></li>
   </ul>
 </div>
 <style>

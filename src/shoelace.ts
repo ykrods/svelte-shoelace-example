@@ -6,3 +6,6 @@ export { default as SLForm } from "./shoelace/SLForm.svelte";
 export { default as SLTabGroup } from "./shoelace/SLTabGroup.svelte";
 export { default as SLTab } from "./shoelace/SLTab.svelte";
 export { default as SLTabPanel } from "./shoelace/SLTabPanel.svelte";
+export { default as SLSwitch } from "./shoelace/SLSwitch.svelte";
+export { default as SLRadioGroup } from "./shoelace/SLRadioGroup.svelte";
+export { default as SLRadioButton } from "./shoelace/SLRadioButton.svelte";
