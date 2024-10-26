@@ -1,16 +1,18 @@
-<!--
-  NOTE: SlDialog.open の値を変える形でもダイアログを開閉できるが
-        bind できないので独自の変数として管理
--->
 <script lang="ts">
   import type { Snippet } from "svelte";
 
   import SlDialog from "@shoelace-style/shoelace/dist/components/dialog/dialog";
 
-  import { SLButton } from "$src/shoelace";
 
-  type PropKeys = "label" | "noHeader";
-  type Props = Partial<Pick<SlDialog, PropKeys>>;
+  type Props = {
+    open: boolean
+    onClose?: () => any
+    children: Snippet
+    footer?: Snippet
+  } & Partial<Pick<SlDialog,
+    | "label"
+    | "noHeader"
+  >>;
 
   let {
     open = $bindable(false),
@@ -18,14 +20,10 @@
     children,
     footer = null,
     ...props
-  }: {
-    open: boolean
-    onClose?: () => any
-    children: Snippet
-    footer?: Snippet
-  } & Props = $props();
+  }: Props = $props();
 
   let dialog: SlDialog;
+
 
   $effect(() => {
     const afterHide = () => {
@@ -33,10 +31,10 @@
       if (onClose) onClose();
     };
 
-    dialog.addEventListener('sl-after-hide', afterHide);
+    dialog.addEventListener("sl-after-hide", afterHide);
 
     return () => {
-      dialog.removeEventListener('sl-after-hide', afterHide);
+      dialog.removeEventListener("sl-after-hide", afterHide);
     }
   });
 
@@ -51,6 +49,7 @@
 </script>
 <sl-dialog bind:this={dialog} {...props}>
   {@render children()}
+
   {#if footer}
     <div slot="footer">
       {@render footer()}

@@ -3,17 +3,16 @@
 
   import SlRadioGroup from "@shoelace-style/shoelace/dist/components/radio-group/radio-group";
 
-  type propKeys = "name" | "value";
 
-  type Props = Partial<Pick<SlRadioGroup, propKeys>>;
+  type Props = {
+    children: Snippet
+  } & Partial<Pick<SlRadioGroup, "name" | "value" | "size">>;
 
   let {
     children,
     value = $bindable(""),
     ...props
-  }: {
-    children: Snippet
-  } & Props = $props();
+  }: Props = $props();
 
   function onChange(evt: Event) {
     value = (evt.target as SlRadioGroup).value

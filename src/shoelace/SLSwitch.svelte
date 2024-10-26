@@ -1,15 +1,19 @@
 <script lang="ts">
+  import type { Snippet } from "svelte";
+
   import SlSwitch from "@shoelace-style/shoelace/dist/components/switch/switch";
 
-  import type { Snippet } from "svelte";
+
+  type Props = {
+    checked: boolean
+    children: Snippet
+  };
 
   let {
     checked = $bindable(false),
     children,
-  } : {
-    checked: boolean
-    children: Snippet
-  } = $props();
+  }: Props = $props();
+
 
   function onChange(evt: Event) {
     checked = (evt.target as SlSwitch).checked;

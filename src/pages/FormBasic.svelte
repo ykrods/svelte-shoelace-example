@@ -1,15 +1,12 @@
 <script lang="ts">
-  import "@shoelace-style/shoelace/dist/components/input/input";
   import "@shoelace-style/shoelace/dist/components/select/select";
   import "@shoelace-style/shoelace/dist/components/option/option";
   import "@shoelace-style/shoelace/dist/components/checkbox/checkbox";
-  import "@shoelace-style/shoelace/dist/components/button/button";
   import "@shoelace-style/shoelace/dist/components/alert/alert";
-  import "@shoelace-style/shoelace/dist/components/icon/icon";
 
   import Layout from "$src/layout/Layout.svelte";
 
-  import { SLForm } from "$src/shoelace";
+  import { SLButton, SLForm, SLInput, SLIcon } from "$src/shoelace";
 
   let alert;
   let alertText = $state('');
@@ -33,14 +30,14 @@
   <h1>Form - basic</h1>
 
   <SLForm {onSubmit}>
-    <sl-input
+    <SLInput
       name="name"
       type="text"
       label="Name"
       required
-      maxlength="10"
+      maxlength={10}
       help-text="Input your name, Maximum length: 10 characters."
-    ></sl-input>
+    ></SLInput>
     <br>
     <sl-select
       name="favorite"
@@ -57,11 +54,11 @@
       I totally agree
     </sl-checkbox>
     <br><br>
-    <sl-button type="submit" variant="primary">Submit</sl-button>
+    <SLButton type="submit" variant="primary">Submit</SLButton>
   </SLForm>
 
   <sl-alert type="success" duration=3000 closable bind:this={alert}>
-    <sl-icon slot="icon" name="check2-circle"></sl-icon>
+    <SLIcon slot="icon" name="check2-circle" label="checked"></SLIcon>
     <pre>{ alertText }</pre>
   </sl-alert>
 </Layout>

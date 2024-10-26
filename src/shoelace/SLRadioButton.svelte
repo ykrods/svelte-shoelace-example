@@ -1,15 +1,22 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
 
+
   import SlRadioButton from "@shoelace-style/shoelace/dist/components/radio-button/radio-button";
-  
+
+  type Props = {
+    children: Snippet;
+    value: SlRadioButton["value"];
+  } & Partial<Pick<SlRadioButton,
+    | "disabled"
+    | "size"
+    | "pill"
+  >>;
+
   let {
     children,
     ...props
-  }: {
-    children: Snippet
-    value: SlRadioButton["value"]
-  } = $props();
+  }: Props = $props();
 </script>
 <sl-radio-button {...props}>
   {@render children()}

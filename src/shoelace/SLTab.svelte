@@ -4,15 +4,20 @@
   import SlTab from "@shoelace-style/shoelace/dist/components/tab/tab";
 
 
-  type Props = Partial<Pick<SlTab, "panel" | "active" | "closable" | "disabled">>;
+  type Props = {
+    children: Snippet;
+    slot?: string;
+  } & Partial<Pick<SlTab,
+    | "panel"
+    | "active"
+    | "closable"
+    | "disabled"
+  >>;
 
   let {
     children,
     ...props
-  } : {
-    children: Snippet
-    slot?: string
-  } & Props = $props();
+  }: Props = $props();
 </script>
 <sl-tab {...props}>
   {@render children()}

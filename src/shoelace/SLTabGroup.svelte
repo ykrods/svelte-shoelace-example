@@ -1,5 +1,5 @@
 <script lang="ts" module>
-  export type Tab = { panel: string, label: string }
+  export type Tab = { panel: string, label: string };
 </script>
 <script lang="ts">
   import type { Snippet } from "svelte";
@@ -7,18 +7,19 @@
   import SlTabGroup from "@shoelace-style/shoelace/dist/components/tab-group/tab-group";
   import SLTab from "./SLTab.svelte";
 
-  type Props = Partial<Pick<SlTabGroup, "placement">>;
+
+  type Props = {
+    children: Snippet
+    tabs: Tab[]
+    tabTemplate?: Snippet<[Tab, number]>
+  } & Partial<Pick<SlTabGroup, "placement">>;
 
   let {
     tabs,
     tabTemplate = undefined,
     children,
     ...props
-  } : {
-    tabs: Tab[]
-    tabTemplate?: Snippet<[Tab, number]>
-    children: Snippet
-  } & Props = $props();
+  }: Props = $props();
 </script>
 <sl-tab-group {...props}>
   {#each tabs as { panel, label }, i }
