@@ -5,17 +5,20 @@
   import "@shoelace-style/shoelace/dist/components/menu/menu";
   import "@shoelace-style/shoelace/dist/components/menu-item/menu-item";
 
+  import { SLButton, SLDivider, SLDropdown, SLMenu, SLMenuItem } from "$src/shoelace";
+
   import Layout from "$src/layout/Layout.svelte";
+
 
   let selected = $state('');
 
   function onSelect(evt) {
     selected = evt.detail.item.value;
   }
-
 </script>
 <Layout>
   <h1>Dropdown</h1>
+  <h2>checkbox</h2>
   <p>
     <sl-dropdown onsl-select={onSelect}>
       <sl-button slot="trigger" caret>Dropdown</sl-button>
@@ -40,5 +43,20 @@
     </sl-dropdown>
     <br>
     selected: { selected }
+  </p>
+  <h2>action menu</h2>
+  <p>
+    <SLDropdown>
+      {#snippet trigger()}
+        <SLButton slot="trigger" caret>Edit</SLButton>
+      {/snippet}
+      <SLMenu>
+        <SLMenuItem onclick={() => console.log("edit")}>Edit</SLMenuItem>
+        <SLDivider></SLDivider>
+        <SLMenuItem
+          onclick={() => console.log("delete")}
+          ><span style="color: red">Delete</span></SLMenuItem>
+      </SLMenu>
+    </SLDropdown>
   </p>
 </Layout>
