@@ -11,11 +11,13 @@
     ...props
   }: {
     children: Snippet
-    trigger: Snippet
-    onSelect?: (evt) => any
+    trigger: Snippet | undefined
+    onSelect?: (evt) => any | undefined
   } = $props();
 </script>
 <sl-dropdown onsl-select={onSelect} {...props}>
-  {@render trigger()}
+  {#if trigger}
+    {@render trigger()}
+  {/if}
   {@render children()}
 </sl-dropdown>

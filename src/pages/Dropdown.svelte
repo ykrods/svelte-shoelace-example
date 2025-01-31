@@ -48,7 +48,7 @@
   <p>
     <SLDropdown>
       {#snippet trigger()}
-        <SLButton slot="trigger" caret>Edit</SLButton>
+        <SLButton slot="trigger">Edit</SLButton>
       {/snippet}
       <SLMenu>
         <SLMenuItem onclick={() => console.log("edit")}>Edit</SLMenuItem>

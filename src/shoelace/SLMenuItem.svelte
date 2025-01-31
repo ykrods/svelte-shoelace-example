@@ -9,7 +9,7 @@
     onclick = null,
   }: {
     children: Snippet
-    onclick: SLMenuItem["onclick"]
+    onclick: SlMenuItem["onclick"]
   } = $props();
 </script>
 <!-- svelte-ignore a11y_click_events_have_key_events -->

@@ -7,6 +7,7 @@
   type Props = {
     children: Snippet;
   } & Partial<Pick<SlButton,
+    | "caret"
     | "disabled"
     | "form"
     | "onclick"
