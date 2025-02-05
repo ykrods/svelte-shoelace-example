@@ -17,10 +17,10 @@
   "author": "ykrods",
   "license": "MIT",
   "devDependencies": {
-    "@shoelace-style/shoelace": "^2.19.1",
+    "@shoelace-style/shoelace": "^2.20.0",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "rollup-plugin-simple-copy": "github:ykrods/rollup-plugin-simple-copy",
-    "svelte": "^5.17.3",
-    "vite": "^6.0.7"
+    "svelte": "^5.19.7",
+    "vite": "^6.0.11"
   }
 }
