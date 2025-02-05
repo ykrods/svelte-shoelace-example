@@ -58,7 +58,7 @@
   </SLForm>
 
   <sl-alert type="success" duration=3000 closable bind:this={alert}>
-    <SLIcon slot="icon" name="check2-circle" label="checked"></SLIcon>
+    <span slot="icon"><SLIcon name="check2-circle" label="checked"></SLIcon></span>
     <pre>{ alertText }</pre>
   </sl-alert>
 </Layout>

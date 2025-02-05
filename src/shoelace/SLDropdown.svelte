@@ -17,7 +17,7 @@
 </script>
 <sl-dropdown onsl-select={onSelect} {...props}>
   {#if trigger}
-    {@render trigger()}
+    <span slot="trigger">{@render trigger()}</span>
   {/if}
   {@render children()}
 </sl-dropdown>
