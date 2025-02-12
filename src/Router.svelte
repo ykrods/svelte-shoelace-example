@@ -3,7 +3,7 @@
 
   import NotFound from "$src/pages/NotFound.svelte";
 
-  const routes = {
+  const routes: Record<string, () => Promise<{ default: Component }>> = {
     "#Home": () => import("./pages/Home.svelte"),
     "#Form-basic": () => import("./pages/FormBasic.svelte"),
     "#Form-reactive": () => import("./pages/FormReactive.svelte"),
@@ -14,7 +14,7 @@
     "#Radio-Switch": () => import("./pages/RadioSwitch.svelte"),
   };
 
-  let RouteComponent: Component = $state();
+  let RouteComponent: Component | undefined = $state();
 
   $effect(() => {
     onHashChange();

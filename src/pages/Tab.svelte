@@ -11,7 +11,7 @@
   <title>Tab</title>
 </svelte:head>
 <!-- workaround for slot_attribute_invalid_placement -->
-{#snippet tab(panel, label)}
+{#snippet tab(panel: string, label: string)}
   <SLTab slot="nav" {panel}>{label}</SLTab>
 {/snippet}
 <Layout>

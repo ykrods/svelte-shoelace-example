@@ -1,5 +1,6 @@
 <script lang="ts">
-  import SlInput from "@shoelace-style/shoelace/dist/components/input/input";
+  import type { SlInput } from "@shoelace-style/shoelace";
+  import "@shoelace-style/shoelace/dist/components/input/input";
 
 
   type Props = {
@@ -20,17 +21,8 @@
     ...props
   }: Props = $props();
 
-  let input: SlInput;
-
-
-  $effect(() => {
-    const onSlInput = () => { value = input.value; }
-
-    input.addEventListener("sl-input", onSlInput);
-
-    return () => {
-      input.removeEventListener("sl-input", onSlInput);
-    }
-  });
+  function onInput(evt: Event) {
+    value = (evt.target as SlInput).value
+  }
 </script>
-<sl-input bind:this={input} {value} {...props}></sl-input>
+<sl-input onsl-input={onInput} {value} {...props}></sl-input>

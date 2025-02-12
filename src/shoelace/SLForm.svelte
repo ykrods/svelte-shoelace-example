@@ -19,7 +19,7 @@
     id?: string
   } = $props();
 
-  let form: HTMLFormElement | undefined;
+  let form: HTMLFormElement;
 
 
   $effect(() => {
@@ -38,11 +38,11 @@
     Promise.all(
       elements.map(elm => customElements.whenDefined(elm))
     ).then(() => {
-      form?.addEventListener("submit", onSubmit);
+      form.addEventListener("submit", onSubmit);
     });
 
     return () => {
-      form?.removeEventListener("submit", onSubmit);
+      form.removeEventListener("submit", onSubmit);
     }
   });
 

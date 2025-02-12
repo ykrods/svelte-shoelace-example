@@ -1,7 +1,8 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-
-  import SlTabGroup from "@shoelace-style/shoelace/dist/components/tab-group/tab-group";
+  import type { SlTabGroup } from "@shoelace-style/shoelace";
+  
+  import "@shoelace-style/shoelace/dist/components/tab-group/tab-group";
 
 
   type Props = {

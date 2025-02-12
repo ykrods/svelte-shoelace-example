@@ -1,4 +1,6 @@
 <script lang="ts">
+  import type { SlSelectEvent } from "@shoelace-style/shoelace";
+
   import "@shoelace-style/shoelace/dist/components/dropdown/dropdown";
   import "@shoelace-style/shoelace/dist/components/divider/divider";
   import "@shoelace-style/shoelace/dist/components/button/button";
@@ -12,7 +14,7 @@
 
   let selected = $state('');
 
-  function onSelect(evt) {
+  function onSelect(evt: SlSelectEvent) {
     selected = evt.detail.item.value;
   }
 </script>

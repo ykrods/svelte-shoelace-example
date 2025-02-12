@@ -1,9 +1,12 @@
 <script lang="ts">
+  import type { SlInput } from "@shoelace-style/shoelace";
+  
   import "@shoelace-style/shoelace/dist/components/input/input";
   import "@shoelace-style/shoelace/dist/components/button/button";
 
   import Layout from "$src/layout/Layout.svelte";
   import { SLForm } from "$src/shoelace";
+    
 
   let confirmation = $state('');
 
@@ -25,7 +28,7 @@
       type="text"
       label="confirmation"
       value={confirmation}
-      onsl-input={(e) => { confirmation = e.target.value; }}
+      onsl-input={(e: Event) => { confirmation = (e.target as SlInput).value; }}
       required
       pattern="shoelace"
       help-text="Please type 'shoelace'"

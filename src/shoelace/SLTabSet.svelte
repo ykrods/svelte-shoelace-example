@@ -1,8 +1,9 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
+  import type { SlTab, SlTabGroup } from "@shoelace-style/shoelace";
 
-  import SlTab from "@shoelace-style/shoelace/dist/components/tab/tab";
-  import SlTabGroup from "@shoelace-style/shoelace/dist/components/tab-group/tab-group";
+  import "@shoelace-style/shoelace/dist/components/tab/tab";
+  import "@shoelace-style/shoelace/dist/components/tab-group/tab-group";
   import "@shoelace-style/shoelace/dist/components/tab-panel/tab-panel";
 
 
@@ -20,12 +21,12 @@
 
   let {
     tabs,
-    tabTemplate = undefined,
+    tabTemplate,
     panelTemplate,
     ...props
   }: {
     tabs: TabProps[]
-    tabTemplate: Snippet<[string, number]>
+    tabTemplate?: Snippet<[string, number]>
     panelTemplate: Snippet<[string, number]>
   } & TabGroupProps = $props();
 </script>
@@ -35,7 +36,7 @@
       {#if label }
         { label }
       {:else}
-        {@render tabTemplate(panel, i)}
+        {@render tabTemplate?.(panel, i)}
       {/if}
     </sl-tab>
   {/each}

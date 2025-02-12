@@ -1,7 +1,8 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-
-  import SlTabPanel from "@shoelace-style/shoelace/dist/components/tab-panel/tab-panel";
+  import type { SlTabPanel } from "@shoelace-style/shoelace";
+  
+  import "@shoelace-style/shoelace/dist/components/tab-panel/tab-panel";
 
 
   type Props = {

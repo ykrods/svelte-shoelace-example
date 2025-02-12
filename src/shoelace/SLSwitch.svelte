@@ -1,7 +1,8 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-
-  import SlSwitch from "@shoelace-style/shoelace/dist/components/switch/switch";
+  import type { SlSwitch } from "@shoelace-style/shoelace";
+  
+  import "@shoelace-style/shoelace/dist/components/switch/switch";
 
 
   type Props = {

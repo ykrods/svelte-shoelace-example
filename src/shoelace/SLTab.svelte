@@ -1,7 +1,8 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
+  import type { SlTab } from "@shoelace-style/shoelace";
 
-  import SlTab from "@shoelace-style/shoelace/dist/components/tab/tab";
+  import "@shoelace-style/shoelace/dist/components/tab/tab";
 
 
   type Props = {

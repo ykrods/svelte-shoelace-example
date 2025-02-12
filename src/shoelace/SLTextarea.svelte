@@ -1,5 +1,7 @@
 <script lang="ts">
-  import SlTextarea from "@shoelace-style/shoelace/dist/components/textarea/textarea";
+  import type { SlTextarea } from "@shoelace-style/shoelace";
+
+  import "@shoelace-style/shoelace/dist/components/textarea/textarea";
 
 
   type Props = {
@@ -17,17 +19,12 @@
     ...props
   } : Props = $props();
 
-  let textarea: SlTextarea;
-
-
-  $effect(() => {
-    const onSlInput = () => { value = textarea.value; }
-
-    textarea.addEventListener("sl-input", onSlInput);
-
-    return () => {
-      textarea.removeEventListener("sl-input", onSlInput);
-    }
-  });
+  function onInput(evt: Event) {
+    value = (evt.target as SlTextarea).value;
+  }
 </script>
-<sl-textarea bind:this={textarea} {value} {...props}></sl-textarea>
+<sl-textarea 
+  onsl-input={onInput}
+  {value} 
+  {...props}
+></sl-textarea>

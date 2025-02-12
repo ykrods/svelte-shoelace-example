@@ -1,7 +1,8 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-
-  import SlRadioGroup from "@shoelace-style/shoelace/dist/components/radio-group/radio-group";
+  import type { SlRadioGroup } from "@shoelace-style/shoelace";
+  
+  import "@shoelace-style/shoelace/dist/components/radio-group/radio-group";
 
 
   type Props = {

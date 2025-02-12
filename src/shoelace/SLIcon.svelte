@@ -1,5 +1,6 @@
 <script lang="ts">
-  import SlIcon from "@shoelace-style/shoelace/dist/components/icon/icon";
+  import type { SlIcon } from "@shoelace-style/shoelace";
+  import "@shoelace-style/shoelace/dist/components/icon/icon";
 
   type Props = Pick<SlIcon, "name" | "label">;
 

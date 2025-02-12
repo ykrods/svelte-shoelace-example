@@ -1,4 +1,6 @@
 <script lang="ts">
+  import type { SlAlert } from "@shoelace-style/shoelace";
+
   import "@shoelace-style/shoelace/dist/components/select/select";
   import "@shoelace-style/shoelace/dist/components/option/option";
   import "@shoelace-style/shoelace/dist/components/checkbox/checkbox";
@@ -8,14 +10,14 @@
 
   import { SLButton, SLForm, SLInput, SLIcon } from "$src/shoelace";
 
-  let alert;
+  let alert: SlAlert;
   let alertText = $state('');
 
-  function onSubmit(evt) {
+  function onSubmit(evt: SubmitEvent) {
     evt.preventDefault();
 
     console.log(evt);
-    const formData = new FormData(evt.target);
+    const formData = new FormData(evt.target as HTMLFormElement);
     alertText = '';
     for (const [key, value] of formData) {
       alertText += `${key}: ${value}\n`;

@@ -3,9 +3,10 @@
 
   import { SLButton, SLDialog } from "$src/shoelace";
 
+  
   let {
-    onConfirm = null,
-    onCancel = null,
+    onConfirm,
+    onCancel,
     children,
     open = $bindable(false),
     label,
@@ -21,9 +22,9 @@
 
   function onClose() {
     if (confirmed) {
-      if (onConfirm) onConfirm();
+      onConfirm?.();
     } else {
-      if (onCancel) onCancel();
+      onCancel?.();
     }
   }
 
@@ -39,7 +40,7 @@
   {@render children()}
 
   {#snippet footer()}
-    <SLButton onclick={() => { open = false; }}>Cancel</SLButton>
+    <SLButton onclick={() => open = false }>Cancel</SLButton>
     <SLButton variant="primary" onclick={() => { confirmed = true; open = false; }}>OK</SLButton>
   {/snippet}
 </SLDialog>
