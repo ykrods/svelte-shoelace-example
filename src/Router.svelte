@@ -12,6 +12,7 @@
     "#ProgressRing": () => import("./pages/ProgressRing.svelte"),
     "#Tab": () => import("./pages/Tab.svelte"),
     "#Radio-Switch": () => import("./pages/RadioSwitch.svelte"),
+    "#Tree": () => import("./pages/Tree.svelte"),
   };
 
   let RouteComponent: Component | undefined = $state();

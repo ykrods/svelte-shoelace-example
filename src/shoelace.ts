@@ -17,3 +17,5 @@ export { default as SLTabGroup } from "./shoelace/SLTabGroup.svelte";
 export { default as SLTabPanel } from "./shoelace/SLTabPanel.svelte";
 export { default as SLTabSet } from "./shoelace/SLTabSet.svelte";
 export { default as SLTextarea } from "./shoelace/SLTextarea.svelte";
+export { default as SLTree } from "./shoelace/SLTree.svelte";
+export { default as SLTreeItem } from "./shoelace/SLTreeItem.svelte";

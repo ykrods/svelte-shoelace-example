@@ -8,6 +8,7 @@
     <li><a href="#ProgressRing">ProgressRing</a></li>
     <li><a href="#Tab">Tab</a></li>
     <li><a href="#Radio-Switch">Radio/Switch</a></li>
+    <li><a href="#Tree">Tree</a></li>
   </ul>
 </div>
 <style>
