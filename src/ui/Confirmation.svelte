@@ -3,7 +3,7 @@
 
   import { SLButton, SLDialog } from "$src/shoelace";
 
-  
+
   let {
     onConfirm,
     onCancel,
@@ -39,8 +39,10 @@
 >
   {@render children()}
 
-  {#snippet footer()}
-    <SLButton onclick={() => open = false }>Cancel</SLButton>
-    <SLButton variant="primary" onclick={() => { confirmed = true; open = false; }}>OK</SLButton>
-  {/snippet}
+  <SLButton sl-slot="footer" onclick={() => open = false }>Cancel</SLButton>
+  <SLButton
+    sl-slot="footer"
+    variant="primary"
+    onclick={() => { confirmed = true; open = false; }}
+  >OK</SLButton>
 </SLDialog>

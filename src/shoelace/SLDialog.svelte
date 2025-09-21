@@ -9,7 +9,6 @@
     open: boolean
     children: Snippet
     onClose?: () => any
-    footer?: Snippet
   } & Partial<Pick<SlDialog,
     | "label"
     | "noHeader"
@@ -19,7 +18,6 @@
     open = $bindable(false),
     children,
     onClose,
-    footer,
     ...props
   }: Props = $props();
 
@@ -46,10 +44,4 @@
   {...props}
 >
   {@render children()}
-
-  {#if footer}
-    <div slot="footer">
-      {@render footer()}
-    </div>
-  {/if}
 </sl-dialog>

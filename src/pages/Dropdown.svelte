@@ -49,9 +49,7 @@
   <h2>action menu</h2>
   <p>
     <SLDropdown>
-      {#snippet trigger()}
-        <SLButton>Edit</SLButton>
-      {/snippet}
+      <SLButton sl-slot="trigger">Edit</SLButton>
       <SLMenu>
         <SLMenuItem onclick={() => console.log("edit")}>Edit</SLMenuItem>
         <SLDivider></SLDivider>
