@@ -1,3 +1,3 @@
 export type BaseProps = {
-  'sl-slot': string
+  'sl-slot'?: string
 }
